@@ -1,0 +1,134 @@
+\begin{problem}[问题1.1]
+1687年牛顿首先发表了他的剪切流动的实验结果,他的实验是在两相距$h$的平行板之间充满粘性流体后进行的,如图\ref{experiment}. 令下平行板固定不动,而使上平板在其自身平面以等速$U$向右运动. 实验指出, 平衡后作用于平板上的力与速度$U$
+及平板面积$A$成正比,与平板间距$h$成反比,即
+\[
+F = \mu \frac{U}{h}A {~}\textrm{或}{~} \tau = \frac{F}{A}=\mu\frac{U}{h}
+\]
+讨论在牛顿剪切流动的实验中, 作用于上平板的外力在流体运动平衡前随时间的变化.
+\end{problem}
+
+
+\begin{solution}
+\begin{figure}[!htb]
+\begin{minipage}[c]{.5\textwidth}
+\centering
+%\includegraphics[width=0.9\textwidth]{experiment.pdf}
+\input{./figures/shearplane.tikz}
+\caption{\label{experiment}剪切流实验}
+\end{minipage}%
+\begin{minipage}[c]{.5\textwidth}
+\centering
+\input{./figures/shearplanesimulate.tikz}
+%\includegraphics[width=0.9\textwidth]{layers.pdf}
+\caption{\label{layers}微元受力分析}
+\end{minipage}
+\end{figure}
+
+\textbf{解:}如图\ref{layers}所示, 取高度为$\Delta h$面积为$A$的三个微元层, 标记为1,2,3. 设1,2,3层的速度分别为$v_1$,$v_2$,$v_3$; 微元1对微元2的作用力为$f_{12}$, 微元3对微元2的作用力为$f_{32}$. 则有
+\begin{equation}
+f_{12} = \mu \frac{v1-v2}{\Delta h}A=\mu \frac{du(y_{12})}{dy}A, {~}f_{32} = \mu \frac{v_3-v_2}{\Delta h}A= \mu \frac{du(y_{32})}{dy}A
+\end{equation}
+则对于微元2有
+\begin{equation}
+\frac{du(y_2)}{dt} = \frac{f_{12} - f_{32}}{\rho A \Delta h}
+= \frac{f_{12} - f_{23}}{\rho A \Delta h} = \frac{\mu}{\rho}\frac{d^2u(y_2)}{dy^2}
+\end{equation}
+因此有以下微分方程组
+\begin{equation}\label{diff}
+\begin{dcases}
+\frac{\partial u(y,t)}{\partial t} = \frac{\mu}{\rho} \frac{\partial ^2 u(y,t)}{\partial y^2} \\
+\frac{\partial u(y,t)}{\partial x} = 0 \\
+u(0,t) = 0, {~}u(H,t) = U, {~}u(y<H)|_{t=0} = 0
+\end{dcases}
+\end{equation}
+
+\noindent\textbf{数值模拟法求解}
+
+根据以上分析, 将微分方程组式(\ref{diff})离散成差分格式,并通过编程计算,可得到外力F随时间的近似变化. 例如, 以273.15K下的水为例, 并令$H=0.05$m, $U=1$m/s.将高$H=0.05$m的水等高的划分成$n = 100$层. 以$dt = 0.02$为时间步长, 每个时间步内,通过计算各层间的黏性力,来得到各层的加速度, 从而更新各层的速度. 图\ref{force}是外力$F$随时间的变化, 其平衡值为0.0354, 与理论值$F=\mu U/H = 1750\times 10^{-6}\times 1/0.05 = 0.0350$相差1.14\%. 图\ref{velocity}为不同时刻速度沿y方向的分布,$t=1000$s时速度成线性分布,这与牛顿所给出的结果是一致的.该计算所使用的程序见附录\ref{sec:ShearExperiment}.
+
+\begin{figure}[!htb]
+\begin{minipage}[c]{.5\textwidth}
+\centering
+%\includegraphics[width=0.9\textwidth]{force.pdf}
+\input{./figures/shearforce.tikz}
+\caption{\label{force}外力$F$随时间的变化}
+\end{minipage}%
+\begin{minipage}[c]{.5\textwidth}
+\centering
+%\includegraphics[width=0.85\textwidth]{velocity.pdf}
+\input{./figures/shearvelocity.tikz}
+\caption{\label{velocity}不同时刻速度沿$y$方向的分布}
+\end{minipage}
+\end{figure}
+\textbf{评论:}该模型简捷有效的模拟了剪切流实验,并得到了与实验结果较吻合的结果(平衡后的$F$值及速度分布与实验结果基本一致).
+但由于模拟本身的限制,使得该模型及模拟存在缺陷：
+
+\begin{enumerate}
+\item 计算所得到的最终平衡值受到步长$dt$及层高$dh$的取值影响,
+但当$dh$取值小于一定程度时,其变化对$F$的最终平衡值影响变得很小.当$dt\rightarrow 0$, $dh\rightarrow 0$ 应有$F$收敛于理论解.
+\item 当$dt$和$dh$取值不适当时,
+某些层会因为在$dt$内速度改变量$a\times dt$过大而改变速度方向,导致系统崩溃. 但可以通过分析来确定$dt$和$dh$取值以避免这种情况.
+\item 当$dt$取值较小,层数$n$较大,初速度$U$较大时,计算机需要计算较长的时间. 但就本题所取算例来讲,其计算在PC机上只需几秒.
+\end{enumerate}
+
+\noindent\textbf{分离变量法求解}
+
+根据微分方程组式(\ref{diff}), 可用分离变量法求解. 令$u=v+w$, 其中$v=A(t)y + B(t)$满足非齐次边界条件,则$v|_{y=0} = B = 0$, $v|_{y=h} = A(t)h = U$, 故有$v=U/h y$. $w$满足
+\[
+\begin{dcases}
+\frac{\partial w}{\partial t} = v \frac{\partial ^2 w}{\partial y^2} \\
+w|_{t=0} = -\frac{U}{h}y\\
+w|_{y=0} = 0, {~}u|_{y=h} = 0
+\end{dcases}
+\]
+令$w=Y(y)T(t)$, 则
+\[
+T' Y = v Y''T \Longrightarrow  \frac{T'}{vT} = \frac{Y''}{Y} = -\lambda(\lambda\geq 0)
+\]
+故有
+\[
+\begin{dcases}
+Y'' + \lambda Y = 0 \\
+Y(0) = 0, Y(h) = 0
+\end{dcases}
+\]
+因此有$\lambda_n = (\frac{n\pi}{h})^2$, $Y_n = \sin\frac{n\pi}{h}y$, $n=1, 2,\cdots$. 代入$w$得
+\[
+w = \sum_{n=1}^{\infty}T_n(t)\sin\frac{n\pi}{h}y
+\]
+又由$w|_{t=0} = -\frac{U}{h}y = \sum_{n=1}^\infty\varphi_n\sin\frac{n\pi}{h}y$, 并令$\xi=\frac{\pi}{h}y$, 有
+{\setlength\arraycolsep{2pt}
+\begin{eqnarray}
+\varphi_n & = & \frac{2}{h}\int_0^h\Big(-\frac{U}{h}y\Big)\sin\frac{n\pi}{h}y dy
+\nonumber\\
+& = & \frac{2}{h}\int_0^\pi\Big(-\frac{U}{h}\frac{h}{\pi}\xi\Big)\sin n\xi\Big(\frac{h}{\pi} d\xi\Big)
+\nonumber\\
+& = & -\frac{2U}{\pi^2}\int_0^h\xi\sin n\xi d\xi\nonumber\\
+& = & - \frac{2U}{n\pi}(-1)^{n+1}\nonumber
+\end{eqnarray}}
+对于$T_n$有
+\[
+\begin{dcases}
+T_n' = - v\frac{n^2\pi^2}{h^2} \\
+T_n|_{t=0} = \varphi_n = -\frac{2U}{n\pi}(-1)^{n+1}
+\end{dcases}
+\]
+故有
+\[
+T_n = \varphi_n\exp\Big(\frac{-vn^2\pi^2}{h^2}t\Big) = -\frac{2U}{n\pi}(-1)^{n+1}\exp\Big(\frac{-vn^2\pi^2}{h^2}t\Big)
+\]
+因此有
+\[
+u = v + w = \frac{U}{h}y + \sum_{n=1}^\infty\Big(-\frac{2U}{n\pi}\Big)(-1)^{n+1}\exp\Big(\frac{-vn^2\pi^2}{h^2}t\Big)\sin\frac{n\pi}{h}y
+\]
+所以可求得$\tau$:
+{\setlength\arraycolsep{2pt}
+\begin{eqnarray}
+\tau & = & \mu\frac{\partial u}{\partial y}\Big|_{y=h}
+\nonumber\\
+& = & \mu\frac{U}{h} + \mu\sum_{n=1}^\infty\Big(-\frac{2U}{n\pi}\Big)(-1)^{n+1}\exp\Big(\frac{-vn^2\pi^2}{h^2}t\Big)(-1)^n\frac{n\pi}{h}
+\nonumber\\
+& = & \mu\frac{U}{h}\Big(1+2\sum_{n=1}^\infty\exp\big(\frac{-vn^2\pi^2}{h^2}t\big)\Big)\nonumber
+\end{eqnarray}}
+并有$t=0+$,$\tau = \infty$; $t=\infty$,$\tau = \mu \frac{U}{h}$
+\end{solution}

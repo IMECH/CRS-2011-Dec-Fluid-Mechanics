@@ -1,0 +1,302 @@
+\begin{problem}[问题3.3]
+推导不可压缩流体流动的球坐标方程.
+\end{problem}
+\begin{solution}
+\textbf{解:}分别推导不可压缩流体流动在球坐标下的连续性方程, 动量方程及能量方程:
+
+\vspace{5pt}
+\noindent\textbf{连续性方程}
+\vspace{5pt}
+
+\noindent 不可压缩流体流动连续性方程的一般形式为$\nabla\cdot\mathbf{v} = 0$, 代入球坐标得球坐球下续性方程为:
+\[
+\frac{1}{R^2}\frac{\partial}{R}(R^2v_R) + \frac{1}{R\sin\theta}\frac{\partial}{\partial\theta}(v_\theta\sin\theta) + \frac{1}{R\sin\theta}\frac{\partial v_\varphi}{\partial\varphi} = 0
+\]
+
+\vspace{5pt}
+\noindent\textbf{动量方程}
+\vspace{5pt}
+
+\noindent 不可压缩流体流动动量方程的一般形式为
+\[
+\underbrace{\frac{d\mathbf{v}}{dt}\vphantom{\frac{1}{\rho}}}_{1} = \underbrace{- \frac{1}{\rho}\nabla p}_{2} + \underbrace{\mathbf{F}\vphantom{\frac{1}{\rho}}}_{3} +\underbrace{\mu\nabla^2\mathbf{v}\vphantom{\frac{1}{\rho}}}_{4}
+\]
+设球坐标中的单位矢量为$\mathbf{n}_R$, $ \mathbf{n}_\theta$, $\mathbf{n}_\varphi$, 现分别求上式中的4项在球坐标下的形式:
+\begin{enumerate}
+\item 在球坐标下$\mathbf{v} = \mathbf{v}_R + \mathbf{v}_\theta + \mathbf{v}_\varphi = v_R\mathbf{n}_R + v_\theta\mathbf{n}_\theta + v_\varphi\mathbf{n}_\varphi$, 因此第一项
+{\setlength\arraycolsep{1pt}
+\begin{eqnarray}
+\frac{d\mathbf{v}}{dt} & = & \frac{d}{dt}\Big(v_R\mathbf{n}_R+v_\theta \mathbf{n}_\theta+v_\varphi\mathbf{n}_\varphi\Big)
+\nonumber\\
+& = & \frac{dv_R}{dt}\mathbf{n}_R + v_R\frac{d\mathbf{n}_R}{dt}
++ \frac{dv_\theta}{dt}\mathbf{n}_\theta + v_\theta\frac{d\mathbf{n}_\theta}{dt}
++ \frac{dv_\varphi}{dt}\mathbf{n}_\varphi + v_\varphi\frac{d\mathbf{n}_\varphi}{dt}
+\nonumber
+\end{eqnarray}}
+将上式中的各项在球坐标下展开:
+\begin{multicols}{2}
+\setlength{\abovedisplayskip}{-5pt}
+\begin{eqnarray}
+v_R\frac{d\mathbf{n}_R}{dt} & = & v_R\Big[\frac{\partial\mathbf{n}_R}{\partial t} + (\mathbf{v}\cdot \nabla)\mathbf{n}_R\Big]\nonumber\\
+ & = &  v_R(\mathbf{v}\cdot \nabla)\mathbf{n}_R
+\nonumber\\
+& = & v_R\Big[
+v_R
+\frac{\partial \mathbf{n}_R}{\partial R} + \frac{v_\theta}{R}\frac{\partial\mathbf{n}_R}{\partial\theta}
++ \frac{v_\varphi}{R\sin\theta}\frac{\partial\mathbf{n}_R}{\partial\varphi}
+\Big]\nonumber\\
+& = &  \frac{v_Rv_\theta}{R}\mathbf{n}_\theta + \frac{v_Rv_\varphi}{R}\mathbf{n}_\varphi
+%
+\nonumber\\
+\nonumber\\
+%
+v_\theta\frac{d\mathbf{n}_\theta}{dt} & = & v_\theta\Big[\frac{\partial\mathbf{n}_\theta}{\partial t} + (\mathbf{v}\cdot \nabla)\mathbf{n}_\theta\Big]\nonumber\\
+ & = &  v_\theta(\mathbf{v}\cdot \nabla)\mathbf{n}_\theta
+\nonumber\\
+& = & v_\theta\Big[
+v_R
+\frac{\partial \mathbf{n}_\theta}{\partial R} + \frac{v_\theta}{R}\frac{\partial\mathbf{n}_\theta}{\partial\theta}
++ \frac{v_\varphi}{R\sin\theta}\frac{\partial\mathbf{n}_\theta}{\partial\varphi}
+\Big]
+\nonumber\\
+& = & -\frac{v_\theta^2}{R}\mathbf{n}_R + \frac{v_\varphi v_\theta \cot\theta}{R}\mathbf{n}_\varphi
+%
+\nonumber\\
+\nonumber\\
+%
+v_\varphi\frac{d\mathbf{n}_\varphi}{dt} & = & v_\varphi\Big[\frac{\partial\mathbf{n}_\varphi}{\partial t} + (\mathbf{v}\cdot \nabla)\mathbf{n}_\varphi\Big]\nonumber\\
+ & = &  v_\varphi(\mathbf{v}\cdot \nabla)\mathbf{n}_\varphi
+\nonumber\\
+& = & v_\varphi\Big[
+v_R\frac{\partial \mathbf{n}_\varphi}{\partial R} + \frac{v_\theta}{R}\frac{\partial\mathbf{n}_\varphi}{\partial\theta}
++ \frac{v_\varphi}{R\sin\theta}\frac{\partial\mathbf{n}_\varphi}{\partial\varphi}
+\Big]
+\nonumber\\
+& = & -\frac{v_\varphi^2}{R}\cot\theta\mathbf{n}_\theta - \frac{v_\varphi^2}{R}\mathbf{n}_R
+\nonumber
+\end{eqnarray}
+
+\begin{eqnarray}
+\frac{d v_R}{dt}\mathbf{n}_R & = &
+   \Big[
+       \frac{\partial v_R}{\partial t} + (\mathbf{v}\cdot\nabla)v_R
+   \Big]\mathbf{n}_R\nonumber\\
+   & = &
+   \Big[
+       \frac{\partial v_R}{\partial t} +
+       v_R\frac{\partial v_R}{\partial R} +\nonumber\\
+   & + & \frac{v_\theta}{R}\frac{\partial v_R}{\partial\theta}+\frac{v_\varphi}{R\sin\theta}\frac{\partial v_R}{\partial\varphi}
+   \Big]\mathbf{n}_R
+   \nonumber\\
+   \nonumber\\
+   \nonumber\\
+   \frac{d v_\theta}{dt}\mathbf{n}_\theta & = &
+   \Big[
+       \frac{\partial v_\theta}{\partial t} + (\mathbf{v}\cdot\nabla)v_\theta
+   \Big]\mathbf{n}_\theta\nonumber\\
+   & = &
+   \Big[
+       \frac{\partial v_\theta}{\partial t} +
+       v_R\frac{\partial v_\theta}{\partial R} +\nonumber\\
+   & + & \frac{v_\theta}{R}\frac{\partial v_\theta}{\partial\theta}+\frac{v_\varphi}{R\sin\theta}\frac{\partial v_\theta}{\partial\varphi}
+   \Big]\mathbf{n}_\theta
+      \nonumber\\
+   \nonumber\\
+   \nonumber\\
+\frac{d v_\varphi}{dt}\mathbf{n}_\varphi & = &
+   \Big[
+       \frac{\partial v_\varphi}{\partial t} + (\mathbf{v}\cdot\nabla)v_\varphi
+   \Big]\mathbf{n}_\varphi\nonumber\\
+   & = &
+   \Big[
+       \frac{\partial v_\varphi}{\partial t} +
+       v_R\frac{\partial v_\varphi}{\partial R} +\nonumber\\
+   & + & \frac{v_\theta}{R}\frac{\partial v_\varphi}{\partial\theta}+\frac{v_\varphi}{R\sin\theta}\frac{\partial v_\varphi}{\partial\varphi}
+   \Big]\mathbf{n}_\varphi
+      \nonumber\\
+   \nonumber\\
+   \nonumber
+\end{eqnarray}
+\end{multicols}
+
+以上三式的推导中,用到了$\partial\mathbf{n}_R/\partial\theta=\mathbf{n}_\theta$, $\partial\mathbf{n}_\theta/\partial\theta=-\mathbf{n}_R$, $\partial\mathbf{n}_R/\partial\varphi=\sin\theta\mathbf{n}_\varphi$,
+$\partial\mathbf{n}_\theta/\partial\varphi=\cos\theta\mathbf{n}_\varphi$,
+$\partial\mathbf{n}_\varphi/\partial\varphi=-(\cos\theta\mathbf{n}_\theta + \sin\theta\mathbf{n}_R)$及
+$\partial\mathbf{n}_R/\partial R=\partial\mathbf{n}_\theta/\partial R=\partial\mathbf{n}_\varphi/\partial R =\partial\mathbf{n}_\varphi/\partial \theta=0$. 最终可以得到
+\begin{eqnarray}
+\frac{d\mathbf{v}}{dt}
+& = &
+\Big(\frac{\partial v_R}{\partial t} +
+       v_R\frac{\partial v_R}{\partial R}
+    +  \frac{v_\theta}{R}\frac{\partial v_R}{\partial\theta}+\frac{v_\varphi}{R\sin\theta}\frac{\partial v_R}{\partial\varphi}-\frac{v_\theta^2-v_\varphi^2}{R}\Big)\mathbf{n}_R\nonumber\\
+& + &
+\Big(\frac{\partial v_\theta}{\partial t} +
+       v_R\frac{\partial v_\theta}{\partial R}
+   + \frac{v_\theta}{R}\frac{\partial v_\theta}{\partial\theta}+\frac{v_\varphi}{R\sin\theta}\frac{\partial v_\theta}{\partial\varphi}+\frac{v_Rv_\theta-v_\varphi^2\cot\theta}{R} \Big)\mathbf{n}_\theta\nonumber\\
+& +&
+\Big(\frac{\partial v_\varphi}{\partial t} +
+       v_R\frac{\partial v_\varphi}{\partial R}
+    +  \frac{v_\theta}{R}\frac{\partial v_\varphi}{\partial\theta}+\frac{v_\varphi}{R\sin\theta}\frac{\partial v_\varphi}{\partial\varphi}
++\frac{v_Rv_\varphi+v_\varphi v_\theta \cot\theta}{R}\Big)\mathbf{n}_\varphi
+\end{eqnarray}
+
+\item 对于第二项中的$-1/\rho\nabla p$有
+\begin{equation}
+-\frac{1}{\rho}\nabla p =
+-\frac{1}{\rho}\frac{\partial p}{\partial R}\mathbf{n}_R
+-\frac{1}{\rho}\frac{1}{R}\frac{\partial p}{\partial\theta}\mathbf{n}_\theta
+-\frac{1}{\rho}\frac{1}{R\sin\theta}\frac{\partial p}{\partial \varphi}\mathbf{n}_\varphi
+\end{equation}
+
+\item 对于第三项$\mathbf{F}$, 则可表示成三个方向上的分量
+\begin{equation}
+\mathbf{F} = \mathbf{F}_R + \mathbf{F}_\theta + \mathbf{F}_\varphi = F_R\mathbf{n}_R + F_\theta\mathbf{n}_\theta + F_\varphi\mathbf{n}_\varphi
+\end{equation}
+
+\item 由$\nabla^2\mathbf{v}=\Delta\mathbf{v}$,可知第四项可有
+\begin{eqnarray}
+\nabla^2\mathbf{v}
+& = & \Big(
+          \Delta v_R -
+          \frac{2v_R}{R} -
+          \frac{2}{R^2\sin\theta}\frac{\partial(v_\theta\sin\theta)}{\partial\theta} - \frac{2}{R^2\sin\theta}\frac{\partial v_\varphi}{\partial\varphi}
+      \Big)\mathbf{n}_R +  \nonumber\\
+& + & \Big(
+          \Delta v_\theta +
+          \frac{2}{R^2}\frac{\partial v_R}{\partial\theta} -
+          \frac{v_\theta}{R^2\sin^2\theta} -
+          \frac{2\cos\theta}{R^2\sin^2\theta}\frac{\partial v_\varphi}{\partial\varphi}
+      \Big)\mathbf{n}_\theta + \nonumber\\
+& + & \Big(
+          \Delta v_\varphi +
+          \frac{2}{R^2\sin\theta}\frac{\partial v_R}{\partial\varphi} +
+          \frac{2\cos\theta}{R^2\sin^2\theta}\frac{\partial v_\theta}{\partial\varphi}-
+          \frac{v_\varphi}{R^2\sin^2\theta}
+      \Big)\mathbf{n}_\varphi
+\end{eqnarray}
+
+其中$\Delta = \frac{\partial^2}{\partial R^2} +
+\frac{2}{R}\frac{\partial}{\partial R}+
+\frac{\cot\theta}{R^2}\frac{\partial}{\partial\theta}+
+\frac{1}{R^2}\frac{\partial^2}{\partial\theta^2}+
+\frac{1}{R^2\sin^2\theta}\frac{\partial^2}{\partial\varphi^2}$
+\end{enumerate}
+
+\noindent 根据式(6-9), 可写出$\mathbf{n}_R$, $\mathbf{n}_\theta$, $\mathbf{n}_\varphi$方向的动量方程
+\begin{eqnarray}
+\frac{\partial v_R}{\partial t} &+&
+v_R\frac{\partial v_R}{\partial R}+
+\frac{v_\theta}{R}\frac{\partial v_R}{\partial\theta}
++\frac{v_\varphi}{R\sin\theta}\frac{\partial v_R}{\partial\varphi}-
+\frac{v_\theta^2-v_\varphi^2}{R}\nonumber\\
+ & = &  -\frac{1}{\rho}\frac{\partial p}{\partial R} + F_R +
+      \mu\Big(
+          \Delta v_R -
+          \frac{2v_R}{R} -
+          \frac{2}{R^2\sin\theta}\frac{\partial(v_\theta\sin\theta)}{\partial\theta} - \frac{2}{R^2\sin\theta}\frac{\partial v_\varphi}{\partial\varphi}
+      \Big)
+\nonumber\\
+\nonumber\\
+\frac{\partial v_\theta}{\partial t} &+&
+v_R\frac{\partial v_\theta}{\partial R}+
+\frac{v_\theta}{R}\frac{\partial v_\theta}{\partial\theta}
++\frac{v_\varphi}{R\sin\theta}\frac{\partial v_\theta}{\partial\varphi}+
+\frac{v_Rv_\theta-v_\varphi^2\cot\theta}{R}\nonumber\\
+ & = & -\frac{1}{\rho}\frac{1}{R}\frac{\partial p}{\partial\theta} + F_\theta+\mu\Big(
+          \Delta v_\theta +
+          \frac{2}{R^2}\frac{\partial v_R}{\partial\theta} -
+          \frac{v_\theta}{R^2\sin^2\theta} -
+          \frac{2\cos\theta}{R^2\sin^2\theta}\frac{\partial v_\varphi}{\partial\varphi}
+      \Big)
+\nonumber\\
+\nonumber\\
+\frac{\partial v_\varphi}{\partial t} &+&
+v_R\frac{\partial v_\varphi}{\partial R}+
+\frac{v_\theta}{R}\frac{\partial v_\varphi}{\partial\theta}
++\frac{v_\varphi}{R\sin\theta}\frac{\partial v_\varphi}{\partial\varphi}
++\frac{v_Rv_\varphi+v_\varphi v_\theta \cot\theta}{R}\nonumber\\
+& = & -\frac{1}{\rho}\frac{1}{R\sin\theta}\frac{\partial p}{\partial \varphi} + F_\varphi+\mu\Big(
+          \Delta v_\varphi +
+          \frac{2}{R^2\sin\theta}\frac{\partial v_R}{\partial\varphi} +
+          \frac{2\cos\theta}{R^2\sin^2\theta}\frac{\partial v_\theta}{\partial\varphi}-
+          \frac{v_\varphi}{R^2\sin^2\theta}
+      \Big)
+ \nonumber
+\end{eqnarray}
+
+\noindent 其中$\Delta = \frac{\partial^2}{\partial R^2} +
+\frac{2}{R}\frac{\partial}{\partial R}+
+\frac{\cot\theta}{R^2}\frac{\partial}{\partial\theta}+
+\frac{1}{R^2}\frac{\partial^2}{\partial\theta^2}+
+\frac{1}{R^2\sin^2\theta}\frac{\partial^2}{\partial\varphi^2}$
+
+\vspace{5pt}
+\noindent\textbf{能量方程}
+\vspace{5pt}
+
+\noindent 能量方程的一般形式如下
+\[
+\frac{\partial e}{\partial t} +\mathbf{v}\cdot\nabla e = \frac{1}{\rho}\nabla\cdot(k\nabla T) + \Phi + \dot{q}
+\]
+其中$\Phi$为耗散函数. 各项在球坐标下有
+{\setlength\arraycolsep{2pt}
+\begin{eqnarray}
+\mathbf{v}\cdot\nabla e & = & (v_R\mathbf{n}_R + v_\varphi\mathbf{n}_\theta + v_\varphi\mathbf{n}_\varphi)\cdot
+\Big(\frac{\partial e}{\partial R}\mathbf{n}_R
++ \frac{1}{R}\frac{\partial e}{\partial\theta}\mathbf{n}_\theta
++ \frac{1}{R\sin\theta}\frac{\partial e}{\partial \varphi}\mathbf{n}_\varphi\Big)\nonumber\\
+& = &
+v_R\frac{\partial e}{\partial R} +
+\frac{v_\theta }{R}\frac{\partial e}{\partial\theta}+
+\frac{v_\varphi}{R\sin\theta}\frac{\partial e}{\partial \varphi}\nonumber
+\end{eqnarray}}
+\[
+\frac{1}{\rho}\nabla\cdot(k\nabla T) = \frac{k}{\rho}\Delta T= \frac{k}{\rho}
+\Big(
+\frac{\partial^2}{\partial R^2} + \frac{2}{R}\frac{\partial}{\partial R}
++ \frac{\cot\theta}{R^2}\frac{\partial}{\partial\theta}+\frac{1}{R^2}\frac{\partial^2}{\partial\theta^2}
++\frac{1}{R^2\sin^2\theta}\frac{\partial^2}{\partial\varphi^2}
+\Big)T
+\]
+{\setlength\arraycolsep{2pt}
+\begin{eqnarray}\label{phiSphere}
+\Phi  =  \mu
+\Big\{
+   2& \big[ &
+        \big(\frac{\partial v_R}{\partial R}\big)^2
+        +\big(\frac{1}{R}\frac{\partial v_\theta}{\partial\theta}+\frac{v_R}{R}\big)^2
+        +\big(\frac{1}{R\sin\theta}\frac{\partial v_\varphi}{\partial\varphi}+\frac{v_R}{R}+\frac{v_\theta\cot\theta}{R}\big)^2
+    \big]\nonumber\\
++ & \big[ &
+        \frac{1}{R\sin\theta}\frac{\partial v_\theta}{\partial\varphi}
+        +\frac{\sin\theta}{R}\frac{\partial}{\partial\theta}\big(\frac{v_\varphi}{\sin\theta}\big)
+    \big]^2
++  \big[
+         \frac{1}{R\sin\theta}\frac{\partial v_R}{\partial\varphi}
+        +R\frac{\partial}{\partial R}\big(\frac{v_\varphi}{R}\big)
+    \big]^2\nonumber\\
++ & \big[ &
+        R\frac{\partial}{\partial R}\big(\frac{v_\theta}{R}\big)
+        +\frac{1}{R}\frac{\partial v_R}{\partial\theta}
+    \big]^2
+\Big\}
+\end{eqnarray}}
+因此球坐标下的能量方程为
+{\setlength\arraycolsep{2pt}
+\begin{eqnarray}
+\frac{\partial e}{\partial t}
++ v_R\frac{\partial e}{\partial R} +
+\frac{v_\theta }{R}\frac{\partial e}{\partial\theta}+
+\frac{v_\varphi}{R\sin\theta}\frac{\partial e}{\partial \varphi}
+=
+\frac{k}{\rho}
+\Big(
+\frac{\partial^2T}{\partial R^2} &+& \frac{2}{R}\frac{\partial T}{\partial R}
++ \frac{\cot\theta}{R^2}\frac{\partial T}{\partial\theta}+\frac{1}{R^2}\frac{\partial^2T}{\partial\theta^2}\nonumber\\
+&+&\frac{1}{R^2\sin^2\theta}\frac{\partial^2T}{\partial\varphi^2}
+\Big)
++\Phi
++\dot{q}
+\end{eqnarray}}
+其中$\Phi$见式(\ref{phiSphere}).
+\end{solution} 

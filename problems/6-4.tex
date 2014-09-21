@@ -1,0 +1,45 @@
+\begin{problem}[问题6.4]已知沿地面有一均匀来流, 流经
+\vspace{-2em}
+\begin{multicols}{2}
+~
+
+半径为$R$的半圆柱形暖棚, 求其所受到的
+拔力.(设流动为理想不可压缩无旋流动, 暖棚内气压与无穷远处相等)
+
+\begin{center}
+\input{./figures/halfcircle.tikz}
+\end{center}
+\end{multicols}
+\end{problem}
+
+\begin{solution}
+\textbf{解:} 该问题可看作无环量圆住绕流问题的上半平面, 故其复速度势为
+\[
+W(z) = v_\infty\big(z+\frac{R^2}{z}\big)
+\]
+对应的势函数和流函数分别为
+\[
+\varphi = v_\infty\big(r+\frac{R^2}{r}\big)\cos\theta,{~~~} \psi = v_\infty\big(r+\frac{R^2}{r}\big)\sin\theta
+\]
+因此速度在$r$和$\theta$上的速度分量分别为
+\[
+v_r = \frac{\partial\varphi}{\partial r} = v_\infty\big(1-\frac{R^2}{r^2}\big)\cos\theta,{~~~}
+v_\theta = \frac{1}{r}\frac{\partial\varphi}{\partial\theta} = -v_\infty\big(1+\frac{R^2}{r^2}\big)\sin\theta
+\]
+半圆柱形暖棚表面有$v_r=0$, $v_\theta=-2v_\infty\sin\theta$, 因此对半圆柱形暖棚表面和无穷远处
+应用伯努力方程
+\[
+\frac{v_\infty^2}{2} + \frac{p_\infty}{\rho} = \frac{v_\theta^2}{2} + \frac{p_\theta}{\rho}
+{~~}\Longrightarrow{~~} p_\theta = p_\infty + \frac{\rho}{2}v_\infty^2(1-4\sin^2\theta)
+\]
+因此拔力为
+\begin{eqnarray}
+F_Y &=& \int_0^\pi (p_\infty - p_\theta)\cdot R\sin\theta d\theta\nonumber\\
+&=& \frac{1}{2} \rho Rv_\infty^2\int_0^\pi (4\sin^2\theta-1)\sin\theta d\theta\nonumber\\
+&=& \frac{1}{2} \rho Rv_\infty^2\int_0^\pi (4\cos^2\theta-3)d(\cos\theta)\nonumber\\
+&=& \frac{1}{2} \rho Rv_\infty^2\Big[
+\frac{4}{3}\cos^3\theta-3\cos\theta
+\Big]_0^\pi\nonumber\\
+&=& \frac{5}{3}\rho Rv_\infty^2\nonumber
+\end{eqnarray}
+\end{solution}

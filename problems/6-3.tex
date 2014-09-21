@@ -1,0 +1,45 @@
+\begin{problem}[问题6.3]
+已知在原点处有一强度为$Q$的源和强度为$\Gamma$的点涡, 求它们共同诱导的复
+速度势$W$, 并绘出示意图.
+\end{problem}
+
+\begin{solution}
+\textbf{解:} 原点处有一强度为$Q$的源和强度为$\Gamma$的点涡可分别表示为
+\[
+W(z)_Q = \frac{Q}{2\pi}\ln z, {~~~} W(z)_\Gamma = \frac{\Gamma}{2\pi i}\ln z
+\]
+共同诱导的复
+速度势$W$可由点源和点涡的复
+速度势线性叠加
+\begin{eqnarray}
+W(z)&=& W(z)_Q + W(z)_\Gamma = \frac{Q}{2\pi}\ln z + \frac{\Gamma}{2\pi i}\ln z\nonumber\\
+&=& \frac{\ln z}{2\pi}[Q-i\Gamma]=\frac{1}{2\pi}[Q-i\Gamma](\ln r + i\theta)\nonumber\\
+&=& \frac{1}{2\pi}\Big[Q\ln r + \Gamma\theta \Big] + \frac{i}{2\pi}\Big[Q\theta-\Gamma\ln r\Big]\nonumber
+\end{eqnarray}
+\vspace{-1em}
+
+\begin{multicols}{2}
+\noindent 因此势函数和流函数分别为
+\[
+\varphi = \frac{1}{2\pi}\Big[Q\ln r + \Gamma\theta \Big]
+\]
+\[
+\psi = \frac{1}{2\pi}\Big[Q\theta-\Gamma\ln r\Big]
+\]
+令$\varphi=K_1$及$\psi=K_2$, 即
+\[
+Q\ln r + \Gamma\theta = K_1'
+\]
+\[
+Q\theta-\Gamma\ln r = K_2'
+\]
+可得势函数和流函数等值线, 如图\ref{fig:polarStream63}所示(这里假设$Q>0$, $\Gamma>0$), 程序见附录\ref{sec:cPotentStream}.
+
+\begin{center}
+%\includegraphics[width=0.3\textwidth]{./figures/p3.pdf}
+\input{./figures/polarStream6-3.tikz}
+\captionof{figure}{流线, 流函数图案}\label{fig:polarStream63}
+\end{center}
+\end{multicols}
+
+\end{solution} 

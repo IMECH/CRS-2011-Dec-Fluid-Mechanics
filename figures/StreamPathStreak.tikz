@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+\begin{axis}[%
+width=0.48\textwidth,
+height=0.47\textwidth,
+xmin=0,xmax=5,
+xlabel={$x$},
+ymin=0,ymax=3.7,
+ylabel={$y$},
+anchor=left of south west,
+legend style={legend pos=north west,font=\scriptsize,legend cell align=left},
+yticklabel style={font=\scriptsize},
+xticklabel style={font=\scriptsize},
+xlabel style={font=\footnotesize},
+ylabel style={font=\footnotesize,yshift=-15pt},
+]
+\addplot [no markers,domain=0:4]{x};
+\addlegendentry{Stream Line};
+
+\addplot [no markers,densely dashed,domain=0:4,samples=50,green!40!black]({exp(ln(\x)+ln(\x)*ln(\x))},\x);
+\addlegendentry{Path Line / Streak Line(t = 0)};
+
+\addplot [no markers,dashed,domain=0:4,samples=80,red]({exp(2*ln(\x)+ln(\x)*ln(\x))},\x);
+\addlegendentry{Streak Line(t = 0.5)};
+
+\addplot [no markers,dashdotted,domain=0:4,samples=200,blue]({exp(3*ln(\x)+ln(\x)*ln(\x))},\x);
+\addlegendentry{Streak Line(t = 1.0)};
+\end{axis}
+\end{tikzpicture}%

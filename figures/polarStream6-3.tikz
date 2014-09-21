@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+\begin{polaraxis}[width=0.45\textwidth,height=0.45\textwidth,ymin=0,ymax=1,
+yticklabel style={font=\scriptsize},
+xticklabel style={font=\scriptsize},
+xlabel style={font=\footnotesize},
+ylabel style={font=\footnotesize},
+legend style={font=\scriptsize,legend cell align=left},]
+	\addplot+[mark=none,domain=0:8*pi,samples=100,blue,dashed,smooth](deg(\x),{10*exp(-\x)}); 
+        \addlegendentry{$\varphi = K_1$};
+	\addplot+[mark=none,domain=-8*pi:2*pi,samples=100,red,solid,smooth](deg(\x), {0.01*exp(\x)}); 
+        \addlegendentry{$\psi = K_2$};
+
+
+	\addplot+[mark=none,domain=0:8*pi,samples=100,blue,dashed,smooth](deg(\x+pi/3),{10*exp(-\x)}); 
+	\addplot+[mark=none,domain=-8*pi:2*pi,samples=100,red,solid,smooth](deg(\x+pi/3), {0.01*exp(\x)}); 
+
+	\addplot+[mark=none,domain=0:8*pi,samples=100,blue,dashed,smooth](deg(\x+2*pi/3),{10*exp(-\x)}); 
+	\addplot+[mark=none,domain=-8*pi:2*pi,samples=100,red,solid,smooth](deg(\x+2*pi/3), {0.01*exp(\x)}); 
+
+	\addplot+[mark=none,domain=0:8*pi,samples=100,blue,dashed,smooth](deg(\x+pi),{10*exp(-\x)}); 
+	\addplot+[mark=none,domain=-8*pi:2*pi,samples=100,red,solid,smooth](deg(\x+pi), {0.01*exp(\x)}); 
+
+	\addplot+[mark=none,domain=0:8*pi,samples=100,blue,dashed,smooth](deg(\x+4*pi/3),{10*exp(-\x)}); 
+	\addplot+[mark=none,domain=-8*pi:2*pi,samples=100,red,solid,smooth](deg(\x+4*pi/3), {0.01*exp(\x)}); 
+
+	\addplot+[mark=none,domain=0:8*pi,samples=100,blue,dashed,smooth](deg(\x+5*pi/3),{10*exp(-\x)}); 
+	\addplot+[mark=none,domain=-8*pi:2*pi,samples=100,red,solid,smooth](deg(\x+5*pi/3), {0.01*exp(\x)}); 
+
+\end{polaraxis}
+\end{tikzpicture}
+

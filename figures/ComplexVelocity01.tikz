@@ -1,0 +1,35 @@
+\pgfplotsset{compat=1.7}
+\begin{tikzpicture}
+\begin{axis}[width=0.9\textwidth,height=0.9\textwidth,
+xlabel={$x$},
+ytick={-5,0,5},xtick={-5,0,5},
+%yticklabels={0.035,0.1,0.2,0.3,0.4,0.5},
+ylabel={$y$},
+xmin=-5,xmax=5,ymin=-5,ymax=5, 
+yticklabel style={font=\scriptsize},
+xticklabel style={font=\scriptsize},
+xlabel style={font=\footnotesize},
+ylabel style={font=\footnotesize},
+legend style={font=\scriptsize,legend cell align=left},
+]
+
+\foreach \x in {1,...,5} {
+  \edef\temp{\noexpand\draw[blue,dashed] (axis cs:0,0) circle [radius=\x];}
+  \temp
+}
+
+\foreach \t in {0,...,20}{
+  \edef\temp{\noexpand\draw[red] (axis cs:0,0)--++({18*\t}:1000);}
+  \temp
+}
+
+
+\addplot[dashed, color=blue,domain=0:2*pi,samples=360,smooth]({0.01*sin(deg(\x))}, {0.01*cos(deg(\x))});
+\addlegendentry{$\varphi = K_1$};
+
+
+\addplot[red,domain=-0.01:0.01,samples=2] {0};
+\addlegendentry{$\psi = K_2$};
+
+\end{axis}
+\end{tikzpicture}%

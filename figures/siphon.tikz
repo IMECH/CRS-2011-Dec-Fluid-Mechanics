@@ -1,0 +1,18 @@
+\usetikzlibrary{%
+    decorations.pathreplacing,%
+    decorations.pathmorphing,arrows
+}
+\begin{tikzpicture}[scale=1.35]
+\fill[blue!20](-0.25,1)--(-0.25,0)--(1.65,0)--(1.65,1);
+\draw[blue](-0.25,1)--(1.65,1) node[midway,above]{$A$};
+\draw[semithick](-0.25,1.5)--(-0.25,0)--(1.65,0)--(1.65,1.5);
+
+\draw[red](0.95,0.75) arc(180:90:0.75 and 1) arc(90:0:0.5) --(2.2,0.25) ;
+
+\draw[red](1.05,0.75) arc(180:90:0.65 and 0.9) arc(90:0:0.4) --(2.1,0.25)node[below]{$B$};
+
+\draw[blue](2.25,1)--(2.6,1) (2.25,0.25)--(2.6,0.25);
+
+\draw[blue,<->,>=stealth'] (2.425,0.25)--(2.425,1) node[above]{$h$}; 
+
+\end{tikzpicture}

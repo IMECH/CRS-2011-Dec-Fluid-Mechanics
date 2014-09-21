@@ -1,0 +1,36 @@
+\usetikzlibrary{%
+    decorations.pathreplacing,%
+    decorations.pathmorphing,arrows
+}
+\begin{tikzpicture}[ media/.style={font={\footnotesize\sffamily}},
+    interface/.style={
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.3cm,segment length=2mm}}},scale=1.5]
+%\draw(0.7,-0.22) rectangle (6.7,1.425);
+\clip(0.7,-0.22) rectangle (6.7,1.425);
+\draw[semithick,interface](2.3,1.3)--(1,0)--(3,0);
+\draw[semithick,->,>=stealth'](3,0)--(3.25,0) node[right]{$x$};
+\draw[semithick,->,>=stealth'](0.75,0)--(1,0) (1,0)--(1,1.4) node[below left]{$y$};
+
+\draw[semithick,dashed,blue](1,0)--(3,0.8284);
+
+\fill[blue,draw=gray](2.5,0.6213) circle(0.05) node[above,black]{$Q$};
+
+\fill[black,draw=gray](1,0)circle(0.05)node[below left]{$o$};
+\fill[black,draw=gray](2,1) circle(0.05) node[below right,black]{$B$};
+\fill[black,draw=gray](1.9,0) circle(0.05) node[above,black]{$A$};
+\fill[black,draw=gray](2.8,0) circle(0.05) node[above,black]{$C$};
+\draw[very thick,blue,->,>=stealth'](3.5,1)--(4,1);
+
+\begin{scope}[xshift=90]
+\draw[semithick,interface](1,0)--(3,0);
+\draw[semithick,->,>=stealth'](3,0)--(3.25,0) node[right]{$\xi$};
+\draw[semithick,->,>=stealth'](2,0)--(2,1.4) node[below left]{$\eta$};
+
+\fill[black,draw=gray](2,0)circle(0.05)node[above left]{$o$};
+\fill[blue,draw=gray](2,0.8) circle(0.05) node[above right,black]{$Q$};
+\fill[black,draw=gray](2.5,0) circle(0.05) node[above,black]{$A$};
+\fill[black,draw=gray](3,0) circle(0.05) node[above,black]{$C$};
+\fill[black,draw=gray](1.25,0) circle(0.05) node[above,black]{$B$};
+\end{scope}
+\end{tikzpicture}

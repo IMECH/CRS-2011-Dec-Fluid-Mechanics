@@ -1,0 +1,43 @@
+\begin{problem}[问题6.2]
+理想, 不可压缩, 定常流动, 在极坐标中势函数为
+\[
+\varphi = r^{1/2}\cos\frac{\theta}{2}
+\]
+求速度分量与流函数, 并分析流函数图案.
+\end{problem}
+\begin{solution}
+\textbf{解:} 设速度在径向和法向的分量分别为$v_r$, $v_\theta$, 则有
+\[
+v_r = \frac{\partial \varphi}{\partial r} =\frac{1}{2\sqrt{r}}\cos\frac{\theta}{2}
+,\qquad
+v_\theta = \frac{1}{r}\frac{\partial \varphi}{\partial\theta} = -\frac{1}{2\sqrt{r}}\sin\frac{\theta}{2}
+\]
+\vspace{-1.5em}
+
+\begin{multicols}{2}
+\noindent 又由$v_r=\frac{1}{r}\frac{\partial\psi}{\partial \theta}$,
+ $v_\theta=-\frac{\partial\psi}{\partial r}$得
+\[
+\frac{1}{r}\frac{\partial\psi}{\partial \theta}= \frac{1}{2\sqrt{r}}\cos\frac{\theta}{2}
+,\quad
+-\frac{\partial\psi}{\partial r}=-\frac{1}{2\sqrt{r}}\sin\frac{\theta}{2}
+\]
+\noindent 因此有
+\[
+\psi = r^{1/2}\sin\frac{\theta}{2}
+\]
+对于流线和流函数图案,可令
+\[
+\varphi = r^{1/2}\cos\frac{\theta}{2}=K_1,\quad
+\psi = r^{1/2}\sin\frac{\theta}{2}=K_2
+\]
+其中$K_1$, $K_2$为常数, 则可得到一组流线和流函数图案, 如图\ref{fig:polarStream}所示, 程序见附录\ref{sec:cPotentStream}. 从图上可知, 流线与流函数线是始终垂直的, 因此已知流线, 流函数即可确定.
+
+\vspace{2em}
+
+\begin{center}
+\input{./figures/polarStream.tikz}
+\captionof{figure}{流线, 流函数图案}\label{fig:polarStream}
+\end{center}
+\end{multicols}
+\end{solution}

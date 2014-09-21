@@ -1,0 +1,45 @@
+\begin{problem}[问题6.9]
+设一蒙古包是一半径为$a$的半圆球形, 受到速度为$V_\infty$的大风袭击, 屋顶
+承受一向上的升力, 有掀翻蒙古包的危险. 假设蒙古包内的压强为流体
+的驻点压强, 求蒙古包受到的拔力.(假设流动为理想不可压缩无旋流)
+\end{problem}
+\begin{solution}
+\begin{multicols}{2}
+\noindent\textbf{解:} 建立如图\ref{fig:halfsphere}所示的极坐标系. 由轴对称无旋流动的圆球绕流结论知, 速度势为
+\[
+\varphi = v_\infty r\Big(1+\frac{a^3}{2r^3}\Big)\cos\theta
+\]
+因此有
+\[
+v_r = \frac{\partial \varphi}{\partial r} = v_\infty\Big(1-\frac{a^3}{r^3}\Big)\cos\theta
+\]
+\[
+v_\theta = \frac{\partial \varphi}{r\partial\theta} =
+-v_\infty r\Big(1+\frac{a^3}{2r^3}\Big)\sin\theta
+\]
+对于蒙古包表面有$r=a$, 因此蒙古包表面
+\[
+u_r = 0, {~} u_\theta = -\frac{3}{2}v_\infty\sin\theta
+\]
+
+\begin{center}
+%\includegraphics[width=0.4\textwidth]{./figures/p9.pdf}
+\input{./figures/halfsphere.tikz}
+\captionof{figure}{蒙古包的极坐标系示意图}\label{fig:halfsphere}
+\end{center}
+\end{multicols}
+\noindent 又由伯努力方程
+\[
+\frac{v_\infty^2}{2} + \frac{p_\infty}{\rho} = \frac{v_\theta^2}{2} + \frac{p_\theta}{\rho} \Longrightarrow p_\theta = p_\infty + \frac{\rho}{2}v_\infty^2\Big(1-\frac{9}{4}\sin^2\theta\Big)
+\]
+驻点压强为$p_\infty + \rho v_\infty^2/2$. 因此作用在蒙古包内外压强差
+\[
+p = p_\infty + \frac{\rho}{2} v_\infty^2 - p_\theta = \frac{9}{8}\rho v_\infty^2\sin^2\theta
+\]
+设蒙古包曲面为$S$, 则半球面(蒙古包)上的面积元$dS = a^2\sin\theta d\theta d\varphi$. 因此蒙古包受到的拔力为
+\begin{eqnarray}
+F_z &=& \iint p\sin\theta\sin\varphi dS\nonumber\\
+    &=& \frac{9}{8}a^2\rho v_\infty^2\int_0^{\pi}\sin\varphi d\varphi  \int_0^{\pi}\sin^4\theta d\theta\nonumber\\
+    &=& \frac{27}{32}\pi a^2 \rho v_\infty^2\nonumber
+\end{eqnarray}
+\end{solution} 

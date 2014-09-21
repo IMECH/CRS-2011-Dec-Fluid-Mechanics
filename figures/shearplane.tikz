@@ -1,0 +1,22 @@
+\usetikzlibrary{%
+    decorations.pathreplacing,%
+    decorations.pathmorphing,arrows
+}
+
+\begin{tikzpicture}
+\draw[->,semithick, >=stealth'] (-0.5,0)--(6,0) node[below=3pt]{$x$};
+\draw[->,semithick, >=stealth'] (0,-0.5)--(0,3.25)node[left=3pt]{$y$};
+\draw[semithick] (-0.1,2.4)node[left]{$H$}--(0,2.4);
+\node[below left=3pt] at (0,0){$o$};
+
+\draw[fill=gray] (1,2.4) rectangle (5,2.5);
+\draw[->,semithick, >=stealth',blue] (5.2,2.45)--(6,2.45)node[midway,above]{$U$};
+\draw[->,semithick, >=stealth',blue] (2.5,2.8)--(4,2.8)node[midway,above]{$F$};
+
+\draw[semithick,blue] (1.5,0)--(1.5,2.4) (1.5,0)--(3.1,2.4);
+
+\draw[->,semithick, >=stealth',blue](1.5,0.6)--(1.9,0.6);
+\draw[->,semithick, >=stealth',blue](1.5,1.2)--(2.3,1.2) node[right=5pt]{$u(y)$};
+\draw[->,semithick, >=stealth',blue](1.5,1.8)--(2.7,1.8);
+
+\end{tikzpicture}

@@ -1,0 +1,29 @@
+\begin{problem}[问题4.1]
+求一加速运动的容器中盛有的液体自由面与水平面的夹角.
+\begin{center}
+%\includegraphics[width=0.3\textwidth]{./homework04/problem01.pdf}
+\input{./figures/accU.tikz}
+\end{center}
+\end{problem}
+
+\begin{solution}
+\textbf{解:} 均加速运动的液体相对静止, 压强除重力场外, 水平方向的惯性力也有贡献
+\begin{eqnarray}
+\nabla p & = & -\rho\nabla gz-\rho\nabla ax\nonumber\\
+         & = & -\rho\nabla(gz+ax)\nonumber\\
+         & = & -\nabla(\rho gz+\rho ax)\nonumber
+\end{eqnarray}
+积分得
+\[
+p + \rho gz+\rho ax = \mathrm{const}
+\]
+对于液面,压强为$p_0$, 因此对于液面上的点$(x,z)$有
+\[
+p_0 + \rho gz+\rho ax = \mathrm{const}\Rightarrow \frac{d(p_0 + \rho gz+\rho ax)}{dx} = 0
+\]
+可解得液面的斜率$dz/dx$:
+\[
+\frac{dz}{dx}= -\frac{a}{g}
+\]
+因此, 液体自由面与水平面的夹角为$\theta = \arctan (a/g)$
+\end{solution} 

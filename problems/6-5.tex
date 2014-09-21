@@ -1,0 +1,20 @@
+\begin{problem}[问题6.5]
+直角域内$z_0$点存在强度为$\Gamma$的点涡, 求其复速度势.
+\end{problem}
+
+\begin{solution}
+\begin{multicols}{2}
+\textbf{解:} 利用镜像法, 分别以实轴虑轴为边界, 在$z_0$的对称点引入相应的点涡, 如图\ref{fig:RectPointVortex}所示. 则有
+\begin{eqnarray}
+W(z) &=& +\frac{\Gamma}{2\pi i}\ln(z-z_0) -\frac{\Gamma}{2\pi i}\ln(z-\overline{z_0})\nonumber\\
+     & & -\frac{\Gamma}{2\pi i}\ln(z+\overline{z_0})+\frac{\Gamma}{2\pi i}\ln(z+z_0)\nonumber\\
+     &=& \frac{\Gamma}{2\pi i}\ln\Big[\frac{z^2-z_0^2}{z^2-\overline{z_0}^2}\Big]\nonumber
+\end{eqnarray}
+
+\vspace{0.1em}
+\begin{center}
+\input{./figures/RectPointVortex.tikz}
+\captionof{figure}{点涡的镜像}\label{fig:RectPointVortex}
+\end{center}
+\end{multicols}
+\end{solution} 

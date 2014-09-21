@@ -1,0 +1,328 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}[问题3.2]
+推导不可压缩流体流动的柱坐标方程.
+\end{problem}
+\begin{solution}
+%\setlength{\columnseprule}{0.4pt}
+%\begin{multicols}{2}
+\textbf{解:}分别推导不可压缩流体流动在柱坐标下的连续性方程, 动量方程及能量方程:
+
+\vspace{5pt}
+\noindent\textbf{连续性方程}
+\vspace{5pt}
+
+\noindent 不可压缩流体流动连续性方程的一般形式为$\nabla\cdot\mathbf{v} = 0$, 代入柱坐标:
+\[
+\frac{1}{R}\frac{\partial }{\partial R}(Rv_R)
++ \frac{1}{R}\frac{\partial v_{\varphi}}{\partial \varphi} + \frac{\partial v_z}{\partial z} = 0
+\]
+因此柱坐标下的连续性方程为
+\[
+\frac{\partial (Rv_R)}{\partial R}+
+\frac{\partial v_{\varphi}}{\partial \varphi} + R\frac{\partial v_z}{\partial z} = 0
+\]
+
+\vspace{5pt}
+\noindent\textbf{动量方程}
+\vspace{5pt}
+
+\noindent 不可压缩流体流动动量方程的一般形式为
+\[
+\underbrace{\frac{d\mathbf{v}}{dt}\vphantom{\frac{1}{\rho}}}_{1} = \underbrace{- \frac{1}{\rho}\nabla p}_{2} + \underbrace{\mathbf{F}\vphantom{\frac{1}{\rho}}}_{3} +\underbrace{\mu\nabla^2\mathbf{v}\vphantom{\frac{1}{\rho}}}_{4}
+\]
+设柱坐标中的单位矢量为$\mathbf{n}_R$, $ \mathbf{n}_\varphi$, $\mathbf{n}_z$, 现分别求上式中的4项在柱坐标下的形式:
+
+\begin{enumerate}
+\item 在柱坐标$\mathbf{v} =\mathbf{v}_R+\mathbf{v}_\varphi + \mathbf{v}_z =v_R\mathbf{n}_R + v_\varphi \mathbf{n}_\varphi+v_z\mathbf{n}_z$, 因此第一项有
+{\setlength\arraycolsep{1pt}
+\begin{eqnarray}
+\frac{d\mathbf{v}}{dt} & = & \frac{d}{dt}\Big(v_R\mathbf{n}_R+v_\varphi \mathbf{n}_\varphi+v_z\mathbf{n}_z\Big)
+\nonumber\\
+& = & \frac{dv_R}{dt}\mathbf{n}_R + v_R\frac{d\mathbf{n}_R}{dt}
++ \frac{dv_\varphi}{dt}\mathbf{n}_\varphi + v_\varphi\frac{d\mathbf{n}_\varphi}{dt}
++ \frac{dv_z}{dt}\mathbf{n}_z + v_z\frac{d\mathbf{n}_z}{dt}
+\nonumber
+\end{eqnarray}}
+将上式中各项在柱坐标下展开:
+\begin{multicols}{2}
+\setlength{\abovedisplayskip}{-5pt}
+\begin{eqnarray}
+v_R\frac{d\mathbf{n}_R}{dt} & = & v_R\Big[\frac{\partial\mathbf{n}_R}{\partial t} + (\mathbf{v}\cdot \nabla)\mathbf{n}_R\Big]\nonumber\\
+ & = &  v_R(\mathbf{v}\cdot \nabla)\mathbf{n}_R
+\nonumber\\
+& = & v_R\Big[
+v_R\frac{\partial \mathbf{n}_R}{\partial R} + \frac{v_\varphi}{R}\frac{\partial\mathbf{n}_R}{\partial\varphi}
++ v_z\frac{\partial\mathbf{n}_R}{\partial z}
+\Big]\nonumber\\
+& = &  \frac{v_Rv_\varphi}{R}\mathbf{n}_\varphi
+\nonumber\\
+\nonumber\\
+v_\varphi\frac{d\mathbf{n}_\varphi}{dt}
+& = & v_\varphi\Big[\frac{\partial\mathbf{n}_\varphi}{\partial t} + (\mathbf{v}\cdot \nabla)\mathbf{n}_\varphi\Big]\nonumber\\
+ & = &  v_\varphi(\mathbf{v}\cdot \nabla)\mathbf{n}_\varphi
+\nonumber\\
+& = &
+v_\varphi\Big[
+v_R\frac{\partial \mathbf{n}_\varphi}{\partial R} + \frac{v_\varphi}{R}\frac{\partial\mathbf{n}_\varphi}{\partial\varphi}
++ v_z\frac{\partial\mathbf{n}_\varphi}{\partial z}
+\Big]
+\nonumber\\
+& = & -\frac{v_\varphi ^2}{R}\mathbf{n}_R
+\nonumber\\
+\nonumber\\
+%
+v_z\frac{d\mathbf{n}_z}{dt} & = &
+v_z\Big[\frac{\partial\mathbf{n}_z}{\partial t} + (\mathbf{v}\cdot \nabla)\mathbf{n}_z\Big]\nonumber\\
+ & = &  v_z(\mathbf{v}\cdot \nabla)\mathbf{n}_z
+\nonumber\\
+& = &
+v_z\Big[
+v_R\frac{\partial \mathbf{n}_z}{\partial R} + \frac{v_\varphi}{R}\frac{\partial\mathbf{n}_z}{\partial \varphi}
++ v_z\frac{\partial\mathbf{n}_z}{\partial z}
+\Big]
+\nonumber\\
+& = & 0
+\nonumber
+\end{eqnarray}
+
+\begin{eqnarray}
+\frac{d v_R}{dt}\mathbf{n}_R & = &
+   \Big[
+       \frac{\partial v_R}{\partial t} + (\mathbf{v}\cdot\nabla)v_R
+   \Big]\mathbf{n}_R\nonumber\\
+   & = &
+   \Big[
+       \frac{\partial v_R}{\partial t} +
+       v_R\frac{\partial v_R}{\partial R} +\nonumber\\
+   & + & \frac{v_\varphi}{R}\frac{\partial v_R}{\partial\varphi}+v_z\frac{\partial v_R}{\partial z}
+   \Big]\mathbf{n}_R
+      \nonumber\\
+   \nonumber\\
+   \nonumber\\
+      \frac{d v_\varphi}{dt}\mathbf{n}_\varphi & = &
+   \Big[
+       \frac{\partial v_\varphi}{\partial t} + (\mathbf{v}\cdot\nabla)v_\varphi
+   \Big]\mathbf{n}_\varphi\nonumber\\
+   & = &
+   \Big[
+       \frac{\partial v_\varphi}{\partial t} +
+       v_R\frac{\partial v_\varphi}{\partial R} +\nonumber\\
+   & + & \frac{v_\varphi}{R}\frac{\partial v_\varphi}{\partial\varphi}+v_z\frac{\partial v_\varphi}{\partial z}
+   \Big]\mathbf{n}_\varphi
+   \nonumber\\
+   \nonumber\\
+   \nonumber\\
+   \frac{d v_z}{dt}\mathbf{n}_z& = &
+   \Big[
+       \frac{\partial v_z}{\partial t} + (\mathbf{v}\cdot\nabla)v_\theta
+   \Big]\mathbf{n}_z\nonumber\\
+   & = &
+   \Big[
+       \frac{\partial v_z}{\partial t} +
+       v_R\frac{\partial v_z}{\partial R} +\nonumber\\
+   & + & \frac{v_\varphi}{R}\frac{\partial v_z}{\partial\varphi}+v_z\frac{\partial v_z}{\partial z}
+   \Big]\mathbf{n}_z
+   \nonumber\\
+   \nonumber
+\end{eqnarray}
+\end{multicols}
+
+上三式的推导中, 用到了$\partial\mathbf{n}_R/\partial R = \partial\mathbf{n}_\varphi/\partial R=\partial\mathbf{n}_R/\partial z =  \partial\mathbf{n}_\varphi/\partial z= 0$, $\partial\mathbf{n}_R/\partial\varphi = \mathbf{n}_\varphi$, $\partial\mathbf{n}_\varphi/\partial\varphi = -\mathbf{n}_R$等结论. 最终可以得到
+{\setlength\arraycolsep{2pt}
+\begin{eqnarray}
+\frac{d\mathbf{v}}{dt}
+& = & \frac{dv_R}{dt}\mathbf{n}_R
++ \frac{dv_\varphi}{dt}\mathbf{n}_\varphi + \frac{dv_z}{dt}\mathbf{n}_z + \frac{v_Rv_\varphi}{R}\mathbf{n}_\varphi-\frac{v_\varphi ^2}{R}\mathbf{n}_R \nonumber\\
+& = &
+\Big(\frac{\partial v_R}{\partial t} +
+       v_R\frac{\partial v_R}{\partial R} +
+    +  \frac{v_\varphi}{R}\frac{\partial v_R}{\partial\varphi}+v_z\frac{\partial v_R}{\partial z} -\frac{v_\varphi ^2}{R}\Big)\mathbf{n}_R + \nonumber\\
+& + &
+\Big(\frac{\partial v_\varphi}{\partial t} +
+       v_R\frac{\partial v_\varphi}{\partial R}
+    +  \frac{v_\varphi}{R}\frac{\partial v_\varphi}{\partial\varphi}+v_z\frac{\partial v_\varphi}{\partial z}+\frac{v_Rv_\varphi}{R}\Big)\mathbf{n}_\varphi + \nonumber\\
+& +& \Big(\frac{\partial v_z}{\partial t} +
+       v_R\frac{\partial v_z}{\partial R} +
+    +  \frac{v_\varphi}{R}\frac{\partial v_z}{\partial\varphi}+v_z\frac{\partial v_z}{\partial z}\Big)\mathbf{n}_z
+\end{eqnarray}}
+
+\item 对于第二项$-1/\rho\nabla p$有
+\begin{equation}
+-\frac{1}{\rho}\nabla p =
+-\frac{1}{\rho}\frac{\partial p}{\partial R}\mathbf{n}_R
+-\frac{1}{\rho}\frac{1}{R}\frac{\partial p}{\partial\varphi}\mathbf{n}_\varphi
+-\frac{1}{\rho}\frac{\partial p}{\partial z}\mathbf{n}_z
+\end{equation}
+\item 对于第三项$\mathbf{F}$, 可表示成柱坐标三个方向上的分量和
+\begin{equation}
+\mathbf{F} = \mathbf{F}_R + \mathbf{F}_\varphi + \mathbf{F}_z = F_R\mathbf{n}_R + F_\varphi\mathbf{n}_\varphi + F_z\mathbf{n}_z
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item 由$\nabla^2\mathbf{v}=\Delta\mathbf{v}$,可知第四项有
+\[
+\nabla^2\mathbf{v}= \Big(
+\Delta v_R - \frac{v_R}{R^2} - \frac{2}{R^2}\frac{\partial v_\varphi}{\partial\varphi}
+\Big)\mathbf{n}_R
++\Big(
+\Delta v_\varphi + \frac{2}{R^2}\frac{\partial v_R}{\partial\varphi}-\frac{v_\varphi}{R^2}
+\Big)\mathbf{n}_\varphi
++\Delta v_z\mathbf{n}_z
+\]
+
+\noindent 其中$\Delta = \frac{\partial}{\partial R^2} +
+\frac{1}{R^2}\frac{\partial^2}{\partial\varphi^2}+
+\frac{\partial^2}{\partial z^2}+
+\frac{1}{R}\frac{\partial}{\partial R}$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\item 由于$\nabla^2\mathbf{v} = \nabla(\nabla\cdot\mathbf{v}) - \nabla\times\nabla\times\mathbf{v}$, 因此求第四项可化为分别求$\mu\nabla(\nabla\cdot\mathbf{v})$和 $\mu\nabla\times\nabla\times\mathbf{v}$
+%{\setlength\arraycolsep{2pt}
+%\begin{eqnarray}\label{eq1q}
+%   \nabla(\nabla\cdot\mathbf{v}) & = &\nabla\Big(
+%\frac{1}{R}\frac{\partial}{\partial R}(Rv_R) + \frac{1}{R}\frac{\partial v_\varphi}{\partial\varphi} + \frac{\partial v_z}{\partial z} \Big)\notag \\
+% & = &\Big(\frac{\partial}{\partial R}\mathbf{n}_R +\frac{1}{R}\frac{\partial}{\partial\varphi}\mathbf{n}_\varphi + \frac{\partial}{\partial z}\mathbf{n}_z\Big)\Big(
+%\frac{1}{R}\frac{\partial}{\partial R}(Rv_R) + \frac{1}{R}\frac{\partial v_\varphi}{\partial\varphi} + \frac{\partial v_z}{\partial z} \Big)\notag \\
+% & = &\Big(
+%\frac{\partial^2V_R}{\partial R^2} - \frac{1}{R^2}\frac{\partial v_\varphi}{\partial\varphi} + \frac{1}{R}\frac{\partial^2v_\varphi}{\partial\varphi\partial R} +\frac{\partial^2v_z}{\partial\varphi\partial z} - \frac{v_R}{R^2} + \frac{1}{R}\frac{\partial v_R}{\partial\varphi}
+%\Big)\mathbf{n}_R + \notag \\
+%& + &\Big(
+%\frac{1}{R}\frac{\partial^2v_R}{\partial\varphi\partial R}
+%+\frac{1}{R^2}\frac{\partial^2v_\varphi}{\partial\varphi^2}
+%+\frac{1}{R}\frac{\partial^2v_z}{\partial\varphi\partial z}
+%+\frac{1}{R^2}\frac{\partial v_R}{\partial\varphi}
+% \Big)\mathbf{n}_\varphi +\notag \\
+%& + &\Big(
+%\frac{\partial^2v_R}{\partial z\partial R}
+%+\frac{1}{R}\frac{\partial^2v_\varphi}{\partial z\partial\varphi}
+%\frac{\partial^2v_z}{\partial^2z}
+%+\frac{1}{R}\frac{\partial v_R}{\partial z}
+% \Big)\mathbf{n}_z\notag\\
+%& & \notag\\
+%%
+%%
+%\nabla\times\nabla\times\mathbf{v} & = & \nabla\times
+%\Big[
+%\big(\frac{1}{R}\frac{\partial v_z}{\partial\varphi} - \frac{\partial v_\varphi}{\partial z}\big)\mathbf{n}_R
+%+\big(\frac{\partial v_R}{\partial z} - \frac{\partial v_z}{\partial R}\big)\mathbf{n}_\varphi
+%+\frac{1}{R}\big(\frac{\partial}{\partial R}(Rv_\varphi) - \frac{\partial v_R}{\partial\varphi}\big)\mathbf{n}_z
+%\Big]
+%\notag\\
+%& = & \Big(\frac{1}{R^2}\frac{\partial v_\varphi}{\partial\varphi} +
+%      \frac{1}{R}\frac{\partial^2v_\varphi}{\partial\varphi\partial R}
+%      - \frac{1}{R^2}\frac{\partial^2 v_R}{\partial\varphi^2}
+%      -\frac{\partial^2 v_R}{\partial z^2}
+%      +\frac{\partial^2 v_z}{\partial z\partial R}\Big)\mathbf{n}_R + \notag\\
+%& + & \Big(
+%      \frac{1}{R}\frac{\partial^2 v_z}{\partial z\partial\varphi} -
+%      \frac{\partial^2v_\varphi}{\partial z^2}
+%      + \frac{v_\varphi}{R^2}
+%      -\frac{1}{R}\frac{\partial v_\varphi}{\partial R}
+%      -\frac{\partial^2 v_\varphi}{\partial R^2}
+%      -\frac{1}{R^2}\frac{\partial v_R}{\partial\varphi}
+%      +\frac{1}{R}\frac{\partial^2 v_R}{\partial\varphi\partial R}
+%      \Big)\mathbf{n}_\varphi + \notag\\
+%& + & \Big(
+%      -\frac{1}{R^2}\frac{\partial^2 v_z}{\partial\varphi^2} +
+%      \frac{1}{R}\frac{\partial^2v_\varphi}{\partial\varphi\partial z}
+%      + \frac{1}{R}\frac{\partial v_R}{\partial z}
+%      +\frac{\partial^2 v_R}{\partial R\partial z}
+%      -\frac{1}{R}\frac{\partial v_z}{\partial R}
+%      -\frac{\partial^2 v_z}{\partial R^2}
+%      \Big)\mathbf{n}_z
+%\end{eqnarray}}
+\end{enumerate}
+根据式(1-4), 可写出$\mathbf{n}_R$, $\mathbf{n}_\varphi$, $\mathbf{n}_z$各方向上的动量方程
+{\setlength\arraycolsep{2pt}
+\begin{eqnarray}
+\frac{\partial v_R}{\partial t}  +
+v_R\frac{\partial v_R}{\partial R} +
+\frac{v_\varphi}{R}\frac{\partial v_R}{\partial\varphi}+
+v_z\frac{\partial v_R}{\partial z} -
+\frac{v_\varphi^2}{R}
+& = &
+-\frac{1}{\rho}\frac{\partial p}{\partial R} + F_R + \mu\Big(
+\Delta v_R-
+\frac{v_R}{R^2}-
+\frac{2}{R^2}\frac{\partial v_\varphi}{\partial\varphi}
+\Big)\nonumber\\
+\nonumber\\
+\frac{\partial v_\varphi}{\partial t}+
+v_R\frac{\partial v_\varphi}{\partial R}+
+\frac{v_\varphi}{R}\frac{\partial v_\varphi}{\partial\varphi}+
+v_z\frac{\partial v_\varphi}{\partial z} +
+\frac{v_Rv_\varphi}{R}
+& = &
+-\frac{1}{\rho R}\frac{\partial p}{\partial\varphi} + F_\varphi + \mu\Big(
+\Delta v_\varphi-
+\frac{v_\varphi}{R^2}+
+\frac{2}{R^2}\frac{\partial v_R}{\partial\varphi}
+\Big)\nonumber\\
+\nonumber\\
+\frac{\partial v_z}{\partial t}+
+v_R\frac{\partial v_z}{\partial R}+
+\frac{v_\varphi}{R}\frac{\partial v_z}{\partial\varphi}+
+v_z\frac{\partial v_z}{\partial z}
+& = &
+-\frac{1}{\rho}\frac{\partial p}{\partial z} + F_z + \mu\Delta v_z\nonumber
+\end{eqnarray}}
+
+\noindent 其中$\Delta = \frac{\partial}{\partial R^2} +
+\frac{1}{R^2}\frac{\partial^2}{\partial\varphi^2}+
+\frac{\partial^2}{\partial z^2}+
+\frac{1}{R}\frac{\partial}{\partial R}$
+
+\vspace{5pt}
+\noindent\textbf{能量方程}
+\vspace{5pt}
+
+\noindent 能量方程的一般形式如下
+\[
+\frac{\partial e}{\partial t} +\mathbf{v}\cdot\nabla e = \frac{1}{\rho}\nabla\cdot(k\nabla T) + \Phi + \dot{q}
+\]
+其中$\Phi$为耗散函数. 各项在柱坐标下有
+\[
+\mathbf{v}\cdot\nabla e = (v_R\mathbf{n}_R + v_\varphi\mathbf{n}_\varphi + v_z\mathbf{n}_z)\cdot\Big(\frac{\partial e}{\partial R}\mathbf{n}_R
++ \frac{1}{R}\frac{\partial e}{\partial\varphi}\mathbf{n}_\varphi
++ \frac{\partial e}{\partial z}\Big)\mathbf{n}_z
+=
+v_R\frac{\partial e}{\partial R}
++ \frac{v_\varphi}{R}\frac{\partial e}{\partial\varphi}
++ v_z\frac{\partial e}{\partial z}
+\]
+\[
+\frac{1}{\rho}\nabla\cdot(k\nabla T) = \frac{k}{\rho}\Delta T= \frac{k}{\rho}
+\Big(\frac{\partial}{\partial R^2} +
+\frac{1}{R^2}\frac{\partial^2}{\partial\varphi^2}+
+\frac{\partial^2}{\partial z^2}+
+\frac{1}{R}\frac{\partial}{\partial R}
+\Big)T
+\]
+{\setlength\arraycolsep{2pt}
+\begin{eqnarray}\label{phi}
+\Phi & = & 2\mu\Big[
+\Big(\frac{\partial v_R}{\partial R}\Big)^2 +
+\Big(\frac{1}{R}\frac{\partial v_\theta}{\partial\theta} + \frac{v_R}{R}\Big)^2 +
+\Big(\frac{\partial v_z}{\partial z}\Big)^2
+\Big] + \nonumber\\
+& &+\mu\Big[
+\Big(\frac{1}{R}\frac{\partial v_z}{\partial\theta} + \frac{\partial v_\theta}{\partial z}\Big)^2 +
+\Big(\frac{\partial v_R}{\partial z} + \frac{\partial v_z}{\partial R}\Big)^2 +
+\Big(\frac{1}{R}\frac{\partial v_R}{\partial\theta} + \frac{\partial v_\theta}{\partial R}-\frac{v_\theta}{R}\Big)^2
+\Big]
+\end{eqnarray}}
+因此柱坐标下的能量方程为
+\[
+\frac{\partial e}{\partial t} +v_R\frac{\partial e}{\partial R}
++ \frac{v_\varphi}{R}\frac{\partial e}{\partial\varphi}
++ v_z\frac{\partial e}{\partial z}
+= \frac{k}{\rho}
+\Big(
+\frac{\partial T}{\partial R^2} +
+\frac{1}{R^2}\frac{\partial^2 T}{\partial\varphi^2}+
+\frac{\partial^2 T}{\partial z^2}+
+\frac{1}{R}\frac{\partial T}{\partial R}
+\Big) + \Phi + \dot{q}
+\]
+其中$\Phi$见式(\ref{phi}).
+\end{solution} 

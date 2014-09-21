@@ -1,0 +1,92 @@
+\begin{problem}[问题6.1]
+已知下列两个速度分布
+\begin{equation}\label{eq60101}
+u = \frac{cx}{x^2 + y^2},{~} v = \frac{cy}{x^2+y^2}
+\end{equation}
+\begin{equation}\label{eq60102}
+u = \frac{-cy}{x^2 + y^2},{~} v = \frac{cx}{x^2+y^2}
+\end{equation}
+其中$c$为常数. 求:
+\begin{enumerate}
+\item 速度势$\varphi$, 流函数$\psi$和复速度势$W$, 并画出等势线和流线;
+\item 围绕坐标原点作一封闭曲线, 求沿此封闭曲线的环量$\Gamma$及流量$Q$.
+\end{enumerate}
+\end{problem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{solution}
+\textbf{解:} 分别对两个速度分布求解(左右栏分别为两个速度分布求解过程)
+\begin{enumerate}
+\item
+由速度势函数及流函公式$\varphi = \int udx + vdy$, $\psi = \int -vdx + udy$. 代入速度分布可求得速度势函数, 流函及复速度势
+\setlength{\columnseprule}{0.4pt}
+\begin{multicols}{2}
+\setlength{\abovedisplayskip}{-10pt}
+\begin{eqnarray}
+\varphi &=& c\int \frac{xdx + ydy}{x^2+y^2}\nonumber\\
+ &=& \frac{c}{2}\ln(x^2+y^2) + C_1\nonumber\\
+ & &\nonumber\\
+\psi &=& c\int \frac{-ydx + xdy}{x^2+y^2}\nonumber\\
+     &=& c\arctan\frac{y}{x} + C_2\nonumber\\
+     & &\nonumber\\
+W &=& c\Big[\ln\sqrt{x^2+y^2} + i\arctan\frac{y}{x}\Big]\nonumber\\
+  &=& c(\ln r + i\theta)\nonumber
+\end{eqnarray}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{eqnarray}
+\varphi &=& c\int \frac{-ydx + xdy}{x^2+y^2}\nonumber\\
+ &=& c\arctan\frac{y}{x} + C_1\nonumber\\
+ & &\nonumber\\
+\psi &=& c\int \frac{-xdx - ydy}{x^2+y^2}\nonumber\\
+     &=& -\frac{c}{2}\ln(x^2+y^2) + C_2\nonumber\\
+     & &\nonumber\\
+W &=& c\Big[\arctan\frac{y}{x}- i\ln\sqrt{x^2+y^2}\Big]\nonumber\\
+  &=& c(\theta - i\ln r)\nonumber
+\end{eqnarray}
+\end{multicols}
+式(\ref{eq60101})和式(\ref{eq60102})对应的的等势线和流线分别如图\ref{p01n01}和\ref{p01n02}所示, 程序见附录\ref{sec:cPotentStream}.
+\begin{figure}[!htb]
+\begin{minipage}[b]{.5\textwidth}
+\centering
+%\includegraphics[width=0.55\textwidth]{./figures/p1f1.pdf}
+\input{./figures/ComplexVelocity01.tikz}
+\caption{\label{p01n01}式(1)对应的等势线和流线}
+\end{minipage}%
+\begin{minipage}[b]{.5\textwidth}
+\centering
+\input{./figures/ComplexVelocity02.tikz}
+%\includegraphics[width=0.55\textwidth]{./figures/p1f2.pdf}
+\caption{\label{p01n02}式(2)对应的等势线和流线}
+\end{minipage}
+\end{figure}
+
+\item 沿封闭曲线的环量和流量
+\[
+\Gamma = \oint_c udx + vdy = \oint \frac{\partial \varphi}{\partial x}dx
++ \frac{\partial \varphi}{\partial y}dy = \oint d\varphi
+\]
+\[
+Q=\oint_c udy-vdx=\oint \frac{\partial \psi}{\partial y}dy
++ \frac{\partial \psi}{\partial x}dx = \oint d\varphi
+\]
+代入速度分布得
+
+\setlength{\columnseprule}{0.4pt}
+\begin{multicols}{2}
+\setlength{\abovedisplayskip}{-10pt}
+\begin{eqnarray}
+\Gamma &=& \oint d\varphi = c\ln r\Big|_{-}^{+}= 0\nonumber\\
+& &\nonumber\\
+Q &=& \oint d\psi=c\theta\Big|_{-}^{+} = 2c\pi\nonumber
+\end{eqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{eqnarray}
+\Gamma &=& \oint d\varphi=c\theta\Big|_{-}^{+}=2c\pi\nonumber\\
+& &\nonumber\\
+Q &=& \oint d\psi = -c\ln r\Big|_{-}^{+}=  0\nonumber
+\end{eqnarray}
+\end{multicols}
+\end{enumerate}
+\end{solution} 

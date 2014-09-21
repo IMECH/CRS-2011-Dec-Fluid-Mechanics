@@ -1,0 +1,80 @@
+
+\usetikzlibrary{calc,fadings,decorations.pathreplacing}
+
+\newcommand\pgfmathsinandcos[3]{%
+  \pgfmathsetmacro#1{sin(#3)}%
+  \pgfmathsetmacro#2{cos(#3)}%
+}
+\newcommand\LongitudePlane[3][current plane]{%
+  \pgfmathsinandcos\sinEl\cosEl{#2} % elevation
+  \pgfmathsinandcos\sint\cost{#3} % azimuth
+  \tikzset{#1/.style={cm={\cost,\sint*\sinEl,0,\cosEl,(0,0)}}}
+}
+\newcommand\LatitudePlane[3][current plane]{%
+  \pgfmathsinandcos\sinEl\cosEl{#2} % elevation
+  \pgfmathsinandcos\sint\cost{#3} % latitude
+  \pgfmathsetmacro\yshift{\cosEl*\sint}
+  \tikzset{#1/.style={cm={\cost,0,0,\cost*\sinEl,(0,\yshift)}}} %
+}
+\newcommand\DrawLongitudeCircle[2][1]{
+  \LongitudePlane{\angEl}{#2}
+  \tikzset{current plane/.prefix style={scale=#1}}
+   % angle of "visibility"
+  \pgfmathsetmacro\angVis{atan(sin(#2)*cos(\angEl)/sin(\angEl))} %
+  \draw[current plane] (\angVis:1) arc (\angVis:\angVis+180:1);
+  \draw[current plane,dashed] (\angVis-180:1) arc (\angVis-180:\angVis:1);
+}
+\newcommand\DrawLatitudeCircle[2][1]{
+  \LatitudePlane{\angEl}{#2}
+  \tikzset{current plane/.prefix style={scale=#1}}
+  \pgfmathsetmacro\sinVis{sin(#2)/cos(#2)*sin(\angEl)/cos(\angEl)}
+  % angle of "visibility"
+  \pgfmathsetmacro\angVis{asin(min(1,max(\sinVis,-1)))}
+  \draw[current plane,black!60] (\angVis:1) arc (\angVis:-\angVis-180:1);
+  \draw[current plane,dashed,black!60] (180-\angVis:1) arc (180-\angVis:\angVis:1);
+}
+
+%% document-wide tikz options and styles
+
+\tikzset{%
+  >=latex, % option for nice arrows
+  inner sep=0pt,%
+  outer sep=2pt,%
+  mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+    fill=black,circle}%
+}
+
+
+
+\begin{tikzpicture} % "THE GLOBE" showcase
+
+\def\R{2.5} % sphere radius
+\def\angEl{35} % elevation angle
+\filldraw[ball color=white] (\R,0) arc (0:180:\R) arc(180:360:{\R} and 0.57*\R);
+\foreach \t in {0,20,...,80} { \DrawLatitudeCircle[\R]{\t} }
+%\foreach \t in {-120} { \DrawLongitudeCircle[\R]{\t} }
+\draw[rotate=-18](0,\R) arc(90:218:{0.4*\R} and \R);
+\draw[semithick,dashed](-\R,0)--(\R,0) (0,0)--(0,0.8*\R) (0,0)--(-0.5*\R,-0.5*\R) (0,0)--(0.4*\R,0.4*\R) (0.4*\R,0.4*\R)--(-0.2*\R,0.4*\R) (0,0)--(-0.25*\R,0.46*\R);
+ %(0,0)--(-0.385*\R,0.1475*\R)--(0.39*\R,0.15*\R)--(0,0);
+\draw[semithick,->] (\R,0)--(1.75*\R,0) node[right]{$x$};
+\draw[semithick,->] (0,0.8*\R)--(0,1.5*\R) node[above]{$z$};
+\draw[semithick,->] (-0.5*\R,-0.5*\R)--(-0.75*\R,-0.75*\R) node[below left]{$y$};
+
+\fill[blue!20,draw=blue](0.4*\R,0.4*\R) circle(0.125) node[right=3pt,blue]{$dS$};
+\draw[semithick,->] (0.4*\R,0.4*\R)--(\R,\R) node[above right]{$p$};
+\draw[<->,semithick,blue] (0:0.75) arc(0:45:0.75);
+
+\draw[<->,semithick,red] (90:0.75) arc(90:120:0.75);
+\node[red] at (105:1){$\varphi$};
+
+\node[blue] at (22.5:1) {$\theta$};
+
+
+\draw[semithick,->] (1.75*\R,0.5)--(1.25*\R,0.5);
+\draw[semithick,->] (1.75*\R,1)--(1.25*\R,1);
+\draw[semithick,->] (1.75*\R,1.5)--(1.25*\R,1.5);
+\draw[semithick,->] (1.75*\R,2.0)--(1.25*\R,2.0);
+
+%\draw
+
+\end{tikzpicture}

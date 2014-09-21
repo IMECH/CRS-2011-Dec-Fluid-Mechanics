@@ -1,0 +1,17 @@
+\usetikzlibrary{%
+    decorations.pathreplacing,%
+    decorations.pathmorphing,arrows
+}
+\begin{tikzpicture}[scale=1.75]
+\draw[semithick](0,2)--(0,0)--(2,0);
+\draw[semithick](0.15,2)node[right]{$A$}--(0.15,0.15)node[above right]{$B$}--(2,0.15) node[above]{$C$};
+\fill[red] (2,0.075) node[right]{$o$}circle(0.03);
+\draw[densely dashed,red,->,>=stealth'] (2,0.075)--(0.075,0.075)--(0.075,1.5) node[right]{$s$};
+\draw[blue](-0.05,2)--(-0.3,2) (-0.05,0)--(-0.3,0) (0,-0.05)--(0,-0.3) (2,-0.05)--(2,-0.3);
+
+\draw[blue,<-,>=stealth'] (-0.175,0)--(-0.175,0.75) node[above]{$L$}; 
+\draw[blue,->,>=stealth'] (-0.175,1.25)--(-0.175,2); 
+
+\draw[blue,<-,>=stealth'] (0,-0.175)--(0.75,-0.175) node[right]{$L$}; 
+\draw[blue,->,>=stealth'] (1.25,-0.175)--(2,-0.175); 
+\end{tikzpicture}

@@ -1,0 +1,26 @@
+\begin{problem}[问题2.1]
+已知速度分布: $u=x-2y$, $v = x-y$. 求初始时刻过$(a,b)$点的质点所经历的轨迹.
+\end{problem}
+\begin{solution}
+\textbf{解:}由迹线微分方程:
+\[
+\begin{dcases}
+\frac{dx}{dt} = u = x-2y \\
+\frac{dy}{dt} = v = x -y
+\end{dcases}
+\]
+积分得
+\[
+\begin{dcases}
+y = C_1\cos(t) + C_2\sin(t)\\
+x = (C_1+C_2)\cos(t)  - (C_1-C_2)\sin(t)
+\end{dcases}
+\]
+当$t=0$时, $x=a$, $y=b$, 可解得$C_1=b$, $C_2=a-b$. 故初始时刻过$(a,b)$点的质点所经历的轨迹为
+\[
+\begin{dcases}
+y = b\cos(t) + (a-b)\sin(t)\\
+x = a\cos(t) + (a-2b)\sin(t)
+\end{dcases}
+\]
+\end{solution} 

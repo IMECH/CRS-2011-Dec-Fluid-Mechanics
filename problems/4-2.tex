@@ -1,0 +1,98 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}[问题4.2]
+有一自引力球形星，其密度随距中心距离r的变化如下：
+\[
+\rho = \rho_0(1-\beta r^2)
+\]
+试推导出在中心处压力的表达式, 并证明如果平均密度为表面密度的2倍, 则中心处压力是具有均匀密度且有同样总质量的星球中心处压力的13/8倍.
+\end{problem}
+
+\begin{solution}
+\textbf{解:}设引力球形星半径为$R$, 与该形星球心距离为$r$的一个球形区域内的总质量为$m(r)$. 则有
+\begin{equation}\label{dmdr}
+\frac{dm(r)}{dr} = 4\pi r^2\rho(r)
+\end{equation}
+代入密度函数并积分
+\[
+m(r) = \int_0^r4\pi r'^2\rho_0(1-\beta r'^2)dr'
+= 4\pi\rho_0\int_0^r r'^2-\beta r'^4dr'
+= 4\pi\rho_0(\frac{1}{3}r^3-\frac{1}{5}\beta r^5 )
+\]
+该形星质量为$m(R) = 4\pi\rho_0(\frac{1}{3}R^3-\frac{1}{5}\beta R^5 )$. 下面分别来完成题中要求的推导和证明:
+
+\begin{itemize}
+\item \textbf{推导中心处压力的表达式}
+
+由流体静力学平衡方程
+\[
+\nabla p = Gm(r)\rho(r)\nabla \frac{1}{r} \Longrightarrow \frac{dp(r)}{dr}= -\frac{Gm(r)}{r^2}\rho_0(1-\beta r^2)
+\]
+其中$G$为引力常数, $Gm(r)/r^2$即为距离球心$r$处的重力加速度处的重力加速度. 对上式积分可得
+\begin{eqnarray}
+p(r) & = & \int -\frac{Gm(r)}{r^2}\rho_0(1-\beta r^2) dr \nonumber\\
+     & = & -4G\pi\rho_0^2\int\Big(\frac{1}{3}r-\frac{1}{5}\beta r^3\Big)(1-\beta r^2) dr\nonumber\\
+     & = & -4G\pi\rho_0^2\int \frac{1}{5}\beta^2r^5 + \frac{1}{3}r -\frac{8}{15}\beta r^3 dr\nonumber\\
+     & = & -4G\pi\rho_0^2\Big(\frac{1}{30}\beta^2r^6 +\frac{1}{6}r^2 -\frac{2}{15}\beta r^4\Big) + C\nonumber\\
+     & = & -\frac{2G\pi r^2\rho_0(\beta^2r^4 - 4\beta r^2 + 5)}{15} + C\nonumber
+\end{eqnarray}
+代入定解条件$p(R)=0$得
+\[
+-\frac{2G\pi R^2\rho_0(\beta^2R^4 - 4\beta R^2 + 5)}{15} + C \Longrightarrow
+C = \frac{2G\pi R^2\rho_0(\beta^2R^4 - 4\beta R^2 + 5)}{15}
+\]
+因此可得压强
+\[
+p(r) = 4G\pi\rho_0^2\Big(\frac{2}{15}\beta r^4 - \frac{1}{30}\beta^2r^6 -\frac{1}{6}r^2\Big) + \frac{2G\pi R^2\rho_0(\beta^2R^4 - 4\beta R^2 + 5)}{15}
+\]
+代入$r=0$可得中心处的压强
+\begin{equation}\label{p_0}
+p(0) = \frac{2G\pi R^2\rho_0(\beta^2R^4 - 4\beta R^2 + 5)}{15}
+\end{equation}
+
+\item \textbf{证明若平均密度为表面的2倍, 则中心压力是同质量密度均匀的星球的13/8倍}
+
+由于该形星平均密度为表面密度的2倍, 故有
+\[
+\frac{m(R)}{4/3\pi R^3} = 2 \rho(R) \Longrightarrow
+\frac{4\pi\rho_0(R^3/3-\beta R^5/5)}{4/3\pi R^3} = 2 \rho_0(1-\beta R^2)
+\]
+解得$R=\sqrt{5/(7\beta)}$, 代入式(\ref{dmdr})和(\ref{p_0})得
+\[
+m(R) = \frac{80\pi\sqrt{35}\rho_0}{1029\beta^{3/2}}, {~~}
+p(0) = \frac{260G\pi\rho_0^2}{1029\beta}
+\]
+
+具有均匀密度且有同样总质量的星球(下称星球2)的密度为
+\[
+\rho' = \frac{m(R)}{4/3\pi R^3} = \frac{4}{7}\rho_0
+\]
+与星球2球心距离为$r$的一个球形区域内的总质量为$m'(r)$
+\[
+m'(r) = \rho'\frac{4}{3}\pi r^3 = \frac{4}{7}\rho_0\frac{4}{3}\pi r^3 = \frac{16}{21}\rho_0\pi r^3
+\]
+设具有均匀密度且有同样总质量的星球$r$处的压强为$p'(r)$, 则有
+\[
+\nabla p'(r) = Gm'(r)\rho'\nabla \frac{1}{r} \Longrightarrow \frac{dp'(r)}{dr}= -\frac{Gm'(r)\rho'}{r^2}
+\]
+积分得
+\begin{eqnarray}
+p'(r) & = & \int -\frac{Gm'(r)\rho'}{r^2}dr\nonumber\\
+      & = & -G\int \frac{16}{21}\rho_0\pi r^3 \frac{4}{7}\rho_0\frac{1}{r^2} dr\nonumber\\
+      & = & -G\frac{4^3}{7^3}\pi\rho_0^2\int r dr\nonumber\\
+      & = & -G\frac{32}{147}\pi\rho_0^2r^2 + C'\nonumber
+\end{eqnarray}
+由$p'(R)=0$代入$R=\sqrt{5/(7\beta)}$得
+\[
+-G\frac{32}{147}\pi\rho_0^2\frac{5}{7\beta} + C' = 0
+\]
+得$c'=\frac{160G\pi\rho_0^2}{1029\beta}$, 因此
+\[
+p'(0) = C' = \frac{160G\pi\rho_0^2}{1029\beta}
+\]
+比较$p(0)$及$p'(0)$有
+\[
+\frac{p'(0)}{p(0)} = \frac{160G\pi\rho_0^2}{1029\beta}\Big/\frac{260G\pi\rho_0^2}{1029\beta} = \frac{8}{13}
+\]
+因此, 如果平均密度为表面密度的2倍, 则中心处压力是具有均匀密度且有同样总质量的星球中心处压力的13/8倍.
+\end{itemize}
+\end{solution} 

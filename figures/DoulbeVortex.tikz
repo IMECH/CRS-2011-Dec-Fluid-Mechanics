@@ -1,0 +1,35 @@
+\usetikzlibrary{%
+    decorations.pathreplacing,%
+    decorations.pathmorphing,arrows
+}
+
+\begin{tikzpicture}[ media/.style={font={\footnotesize\sffamily}},
+    interface/.style={
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.3cm,segment length=2mm}}},scale=1.5]
+
+\clip(-2,-2.4)rectangle(2.4,2.1);
+\draw[semithick,->,>=stealth'](-2,0)--(2,0) node[right]{$x$};
+\draw[semithick,->,>=stealth'](0,-1.8)--(0,1.6) node[above]{$y$};
+
+
+
+\fill[gray,draw=blue](-1,0) circle(0.05) node[below,blue]{$-a$};
+\draw[semithick,red,->,>=stealth'](-1,-0.5) arc(-90:90:0.5);
+
+\fill[gray,draw=blue](1,0) circle(0.05)node[below,blue]{$a$};
+\draw[semithick,red,->,>=stealth'](1,-0.5) arc(-90:-270:0.5);
+
+\node[blue] at (1,1){$a\rightarrow 0$};
+
+%\fill[blue!20](0.5,1)--(0.5,0.05)--(2,0.05)--(2,0.75);
+
+%\draw[semithick] (0.5,1.25)--(0.5,0.05)--(2,0.05)--(2,1.25);
+%\draw[blue, semithick] (0.5,1)--(2,0.75);
+%\draw[blue,dashed](2,0.75)--(0.75,0.75);
+%\draw (1,0.75) arc(180:170:1) node[blue,above]{$\theta$};
+%\draw [semithick,->,>=stealth',blue] (2.1,0.5)--(2.75,0.5) node[right]{$a$};
+
+
+
+\end{tikzpicture}

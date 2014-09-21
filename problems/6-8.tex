@@ -1,0 +1,33 @@
+\begin{problem}[问题6.8]
+在复平面上推导由两个极其靠近的反向点涡构成的偶极子的复速度势.
+\end{problem}
+
+\begin{solution}
+\textbf{解:} 如图\ref{p8f1}平面上两个反向点涡, 其的复速度势可由各自的速度势叠加, 即
+\[
+W(z) = \frac{\Gamma}{2\pi i}\ln(z-a) + \frac{-\Gamma}{2\pi i}\ln(z+a)
+= -\frac{2a\Gamma}{2\pi i}\frac{\ln(z-a)-\ln(z+a)}{(z-a)-(z+a)}
+\]
+两个点涡构成的偶极子, 则$a\rightarrow 0$, 因此上式有
+\begin{eqnarray}
+\lim_{a\rightarrow 0} W(z) &=& -\frac{2a\Gamma}{2\pi i}\lim_{a\rightarrow 0}\frac{\ln(z-a)-\ln(z+a)}{(z-a)-(z+a)}
+= -\frac{a\Gamma}{\pi i}\frac{1}{z}\nonumber\\
+&=& -\frac{a\Gamma}{\pi i}(\cos\theta - i\sin\theta)= \frac{a\Gamma}{\pi r}\sin\theta + i\frac{a\Gamma}{\pi r}\cos\theta\nonumber
+\end{eqnarray}
+由此可以作出势函数和流函数等值线, 如图\ref{p8f2}所示, 程序见附录\ref{sec:cPotentStream}.
+\begin{figure}[!htb]
+\begin{minipage}[b]{.5\textwidth}
+\centering
+%\includegraphics[width=0.8\textwidth]{./figures/p8f1.pdf}
+\input{./figures/DoulbeVortex.tikz}
+\caption{\label{p8f1}两个点涡构成的偶极子示意图}
+\end{minipage}%
+\begin{minipage}[b]{.5\textwidth}
+\centering
+\input{./figures/ComplexVelocity6-8.tikz}
+%\includegraphics[width=0.8\textwidth]{./figures/p8.pdf}
+\caption{\label{p8f2}势函数和流函数等值线}
+\end{minipage}
+\end{figure}
+
+\end{solution}

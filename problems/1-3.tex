@@ -1,0 +1,36 @@
+\begin{problem}[问题1.3]
+若两小固体漂浮在液面上. 试说明, 当两固体均被液体浸润或当它们均不被浸润时, 表面张力
+的作用是使相邻两固体相互接近; 当一个是被浸润而另一个不被浸润时, 表面张力是使它们彼此远离.
+\end{problem}
+\begin{solution}
+\begin{figure}[!htb]
+\begin{minipage}[b]{.33\textwidth}
+\centering
+\input{./figures/wet-wet.tikz}
+\caption{\label{float01}浸润-浸润}
+\end{minipage}%
+\begin{minipage}[b]{.33\textwidth}
+\centering
+\input{./figures/nowet-nowet.tikz}
+\caption{\label{float02}不润湿-不润湿}
+\end{minipage}
+\begin{minipage}[b]{.33\textwidth}
+\centering
+\input{./figures/wet-nowet.tikz}
+\caption{\label{float03}不润湿-浸润}
+\end{minipage}
+\end{figure}
+\textbf{解:}如图\ref{float01}-\ref{float03}所示,是本题中所要考虑的三种情况.当两物块没有接近时,各自在各个方向上受的到表面张力的水平分量相互平衡,竖值分量与重力及浮力平衡, 表现为静止.
+当两物块靠近时,
+表面张力有缩小两物块间液体的表面积, 至使小物块内外两侧出现压力差
+,结果表现为相互接近或远离.下面就这三种情况一一分析:
+\begin{enumerate}
+\item \textbf{浸润-浸润}:如图\ref{float01}中两物块,当它们靠近时,它
+们之间的凹形液面在表面张力的作用下将缩小表
+面积使其上升, $p<p_0$, 因此两物块相互接近.
+\item \textbf{不润湿-不润湿}:如图\ref{float02}中两物块,当它们靠近时,它
+们之间的凸形液面在表面张力的作用下将缩小表
+面积使其下降, $p<p_0$, 因此两物块相互接近.
+\item \textbf{浸润-不润湿}:如图\ref{float03}中两物块,当它们靠近时,左物块的右侧凸液面及右物块的左侧凹液面在表面张力的作用下缩小表面积,对于左物块有$p>p_0$受得向左的合力, 同样对于右块可知受到向右的合力, 因此它们彼此远离.
+\end{enumerate}
+\end{solution}

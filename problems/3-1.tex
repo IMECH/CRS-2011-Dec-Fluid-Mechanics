@@ -1,0 +1,38 @@
+\begin{problem}[问题3.1]
+下列流体力学方程组(N-S方程组)必须满足什么样的假设条件?
+\[
+\underbrace{\frac{\partial\rho}{\partial t} + \frac{\partial}{\partial x_i}(\rho u_i) = 0}_{1}
+\]
+\[
+\frac{\partial u_i}{\partial t} + u_j\frac{\partial u_i}{\partial x_j}
+= \underbrace{- \frac{1}{\rho}\frac{\partial p}{\partial x_i}+\frac{1}{\rho}\frac{\partial p}{\partial x_i} \Big(\lambda\frac{\partial u_k}{\partial x_k}\Big) + \frac{1}{\rho}\frac{\partial}{\partial x_j}\Big[\mu\Big(\frac{\partial u_i}{\partial x_j}+ \frac{\partial u_j}{\partial x_i}\Big)\Big]}_{2} + f_i
+\]
+\[
+\underbrace{C_v\Big(\frac{\partial T}{\partial t} + u_i\frac{\partial T}{\partial x_i}\Big)
+}_{3}= \underbrace{-\frac{p}{\rho}\frac{\partial u_i}{\partial x_i}
++ \frac{1}{\rho}\Phi}_{2}
++\frac{1}{\rho}\frac{\partial}{\partial x_i}\Big(\underbrace{k\frac{\partial T}{\partial x_i}}_{4}\Big)
++ q_0
+\]
+\[
+\underbrace{\rho = \rho(p,T)}_{5}
+\]
+\end{problem}
+
+\begin{solution}
+\textbf{解:} 以上四式必须满足以下假设条件:
+\begin{enumerate}
+\item 连续介质假设
+\item 流体本构-牛顿液体 $\sigma_{ij} = -p\delta_{ij}+\lambda S_{kk}\delta_{ij} + 2\mu S_{ij}$.
+且满足斯托克斯做的三个假设:
+\begin{itemize}
+\item 当流体静止时, 应变速率为零, 流体的应力就是静止压强.
+\item 应力张量是应变速率张量的线性函数.
+\item 流体是各向同性的.
+\end{itemize}
+\item 完全气体(内能仅是温度的函数), 温度变化不大, $C_v$为常数.
+\item 传热本构-傅里叶定律$q_i = -k\frac{\partial T}{\partial x_i}$. 传热各向同性.
+\item 均匀系统.
+\end{enumerate}
+
+\end{solution} 

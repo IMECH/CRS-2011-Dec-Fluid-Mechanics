@@ -1,0 +1,30 @@
+\begin{problem}[问题1.2]
+使两个半径分别为$a_1$及$a_2$的球形肥皂泡合并,合并后肥皂泡内的气体温度恢复到初始值,
+试证明合并后的肥皂泡半径r满足:
+\[
+p_0r^3+4\sigma r^2 = p_0(a_1^3+a_2^3)+4\sigma(a_1^2+a_2^2)
+\]
+
+其中$p_0$为环境压强, $\sigma$为空气-液体表面处的张力系数.
+\end{problem}
+
+\begin{solution}
+\textbf{解:}由理想气体方程$pV=nR_0T$,球体体积公式$V=4/3\pi r^3$及液面内外压强差公式$\Delta p = 2\sigma/r+2\sigma/r=4\sigma/r$(内外两层表面：气液表面+液气表面),两球形肥皂泡合并前后有
+\[
+(p_0+\Delta p_1)V_1 = n_1R_0T, {~} V_1 = \frac{4}{3}\pi a_1^3, {~} \Delta p_1 = \frac{4\sigma}{a_1}
+\]
+\[
+(p_0+\Delta p_2)V_2 = n_2R_0T, {~} V_2 = \frac{4}{3}\pi a_2^3, {~} \Delta p_2 = \frac{4\sigma}{a_2}
+\]
+\[
+(p_0+\Delta p)V = nR_0T, {~} V = \frac{4}{3}\pi r^3, {~} \Delta p = \frac{4\sigma}{r}
+\]
+又由合并前后的物质的量守恒$n=(n_1+n_2)\Rightarrow nR_0T = (n_1+n_2)R_0T$得:
+\[
+(p_0+\frac{4\sigma}{r})\frac{4}{3}\pi r^3 = (p_0+\frac{4\sigma}{a_1})\frac{4}{3}\pi a_1^3 + (p_0+\frac{4\sigma}{a_2})\frac{4}{3}\pi a_2^3
+\]
+将上式整理可得
+\[
+p_0r^3+4\sigma r^2 = p_0(a_1^3+a_2^3)+4\sigma(a_1^2+a_2^2)
+\]
+\end{solution}
